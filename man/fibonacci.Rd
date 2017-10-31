@@ -17,10 +17,12 @@ fibonacci(seq_length = 10, first_num = 0, second_num = 1)
 Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
 }
 \examples{
+\dontrun{
 fibonacci('eight', 2, -1)  # wrong way 1
 fibonacci(8, 2, -1)  # wrong way 2
 fibonacci(8, 2, 1)  # wrong way 3
 fibonacci(8, 2, 2) # wrong way 4
+}
 fibonacci(8, 10, 2)  # correct way!
 fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 fibonacci(30)

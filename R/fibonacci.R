@@ -6,12 +6,12 @@
 #' @param second_num The next number in the sequence after frist_num. Use any posiitive number that comes after first_num (second_num > first_num). The default is 1.
 #' @keywords fibonacci, sequence, math, science, nature
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' fibonacci('eight', 2, -1)  # wrong way 1
 #' fibonacci(8, 2, -1)  # wrong way 2
 #' fibonacci(8, 2, 1)  # wrong way 3
 #' fibonacci(8, 2, 2) # wrong way 4
-
+#' }
 #' fibonacci(8, 10, 2)  # correct way!
 #' fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 #' fibonacci(30)

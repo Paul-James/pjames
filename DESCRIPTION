@@ -8,15 +8,13 @@ Authors@R: c(
     )
 Maintainer: Paul James <paul.james379@gmail.com>
 Description: A collection of functions put together for use by me.
-    Everyone can add to this package as long as the functions are robust
-    and have been well written and documented. This is meant to help keep .Rprofiles
-    and the global environment clear. For example, the rm(list = ls()) command
+    This is meant to help keep .Rprofile and the global environment clear. For example, the rm(list = ls()) command
     clears out any custom functions defined in the .Rprofile because those functions
     are part of the global environment. This also saves time and effort pasting/
     sourcing commonly used functions to the top of every R script you write. All
     these manual steps can be avoided with the use of a package. However, beware
     of reproducibility issues. If you need to share your code, either use base R
-    functions or share the function code (EI define the functions in the top of the
+    functions or share the function code (IE define the functions in the top of the
     script).
 Depends:
     R (>= 3.1.2)

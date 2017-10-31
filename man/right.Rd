@@ -4,7 +4,7 @@
 \alias{right}
 \title{R Analog to SQL's RIGHT() function}
 \usage{
-right(vec, n, trimws = T, sameclass = F)
+right(vec, n, trimws = TRUE, sameclass = FALSE)
 }
 \arguments{
 \item{vec}{A vector of any datatype. Not vectors of lists or matrices. I'm talking about charcter, numeric, logical, factor, etc.}
@@ -21,8 +21,8 @@ Vectorized wrapper for taking the right N characters from a character, number, f
 \examples{
 right(vec = 'SomethingLong', n = 4)
 right(vec = 425575.4, n = 5)
-right(vec = 'AnotherThing  ', n = 7, trimws = F)
-right(vec = 401.98, 4, sameclass = T)
+right(vec = 'AnotherThing  ', n = 7, trimws = FALSE)
+right(vec = 401.98, 4, sameclass = TRUE)
 }
 \keyword{analog}
 \keyword{right,}

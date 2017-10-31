@@ -4,7 +4,7 @@
 \alias{tocamel}
 \title{Convert string to camelcase (ie PaulJames)}
 \usage{
-tocamel(..., sep = "\\\\W+", collapseall = F)
+tocamel(..., sep = "\\\\W+", collapseall = FALSE)
 }
 \arguments{
 \item{...}{A string, vector of strings, or list of strings in any letter case pattern.}
@@ -19,7 +19,7 @@ Takes a string, vector(s) of strings, or list of strings and converts the case t
 \examples{
 tocamel("jonny appleseed")
 tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
-tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = T)
+tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 tocamel("GraNDpa CrIPEs -mcgee!!!!")
 }
 \keyword{camel,}

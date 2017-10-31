@@ -4,7 +4,7 @@
 \alias{left}
 \title{R Analog to SQL's LEFT() function}
 \usage{
-left(vec, n, trimws = T, sameclass = F)
+left(vec, n, trimws = TRUE, sameclass = FALSE)
 }
 \arguments{
 \item{vec}{A vector of any datatype. Not vectors of lists or matrices. I'm talking about charcter, numeric, logical, factor, etc.}
@@ -21,8 +21,8 @@ Vectorized wrapper for taking the left N characters from a character, number, fa
 \examples{
 left(vec = 'SomethingLong', n = 4)
 left(vec = 40000.00, n = 2)
-left(vec = '  AnotherThing', n = 4, trimws = F)
-left(vec = 400, 1, sameclass = T)
+left(vec = '  AnotherThing', n = 4, trimws = FALSE)
+left(vec = 400, 1, sameclass = TRUE)
 }
 \keyword{analog}
 \keyword{left,}

@@ -4,7 +4,7 @@
 \alias{tocapital}
 \title{Convert names to capitalcase (ie Paul James)}
 \usage{
-tocapital(..., sep = "\\\\s+", collapseall = F)
+tocapital(..., sep = "\\\\s+", collapseall = FALSE)
 }
 \arguments{
 \item{...}{A string, vector of strings, or list of strings in any letter case pattern.}
@@ -19,7 +19,7 @@ Takes a string, vector(s) of strings, or list of strings and converts the case t
 \examples{
 tocapital("jonny appleseed")
 tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"))
-tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"), collapseall = T)
+tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"), collapseall = TRUE)
 tocapital("GraNDpa CrIPEs -mcgee")
 }
 \keyword{camelcase}

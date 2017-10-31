@@ -9,6 +9,6 @@
 
 tourney <- function(...){
     players <- unlist(list(...))
-    bracket <- data.frame(player = players[sample(1:length(players), replace = F)])
+    bracket <- data.frame(player = players[sample(1:length(players), replace = FALSE)])
     View(bracket)
 }

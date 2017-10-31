@@ -1,6 +1,6 @@
 #' R analog/ rewrite to Excel's PMT function
 #'
-#' DESCRIPTION HERE
+#' https://gist.github.com/econ-r/dcd503815bbb271484ff
 #' @param rate interest rate
 #' @param nper number of periods
 #' @param pv present value
@@ -9,7 +9,7 @@
 #' @keywords finance, amortization, excel, payment
 #' @export
 #' @examples
-#' EXAMPLES HERE
+#' excelpmt(rate = .03, nper = 60, pv = 60000)
 
 
 excelpmt <- function(
@@ -23,10 +23,10 @@ excelpmt <- function(
     # USE ENTIRE GIST (link below) AS IT CONTAINS MANY EXCEL FINANCE FUNCTIONS
     # https://gist.github.com/econ-r/dcd503815bbb271484ff
     pmt = ifelse(
-        test = rate != 0
+          test = rate != 0
         , yes  = (rate * (fv + pv * (1 + rate)^nper)) / ((1 + rate * type) * (1 - (1 + rate)^nper))
         , no   = (-1 * (fv + pv) / nper)
-    )
+        )
 
     pmt
 }

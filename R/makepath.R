@@ -13,12 +13,12 @@
 #' @keywords path, pathway, steps
 #' @export
 #' @examples
-#' asd <- data.frame(id = rep(letters, times = 4), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7', 'install1', 'install2', 'install3', 'other'), size = 26 * 4, replace = T), stringsAsFactors = F)
+#' asd <- data.frame(id = rep(letters, times = 4), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7', 'install1', 'install2', 'install3', 'other'), size = 26 * 4, replace = TRUE), stringsAsFactors = FALSE)
 #'
 #' asd$path1 <- makepath(groupcol = asd$id, pathcol = asd$service)
-#' asd$path2 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = T, keepvalues = c('ps1', 'ps2', 'ps3'))
-#' asd$path3 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = T, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = F)
-#' asd$path4 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = T, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = F, keepconsec = T)
+#' asd$path2 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'))
+#' asd$path3 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = FALSE)
+#' asd$path4 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = FALSE, keepconsec = TRUE)
 #'
 #' asd
 
@@ -27,10 +27,10 @@ makepath <- function(
       groupcol
     , pathcol
     , sep        = '-'
-    , subset     = F
+    , subset     = FALSE
     , keepvalues
-    , ordered    = T
-    , keepconsec = T
+    , ordered    = TRUE
+    , keepconsec = TRUE
     ){
     # required packages
     suppressMessages(require(dplyr))
@@ -44,17 +44,17 @@ makepath <- function(
         person <- pathcol[ personH[[KeyX]] ]
 
         # subset to keep only the wanted values
-        if(subset == T){
+        if(subset == TRUE){
             person <- person[which(person %in% keepvalues)]
         }
 
         # order the pathway
-        if(ordered == F){
+        if(ordered == FALSE){
             person <- sort(person)
         }
 
         # remove duplicate steps in the pathway
-        if(keepconsec == F){
+        if(keepconsec == FALSE){
             person <- unique(person)
         }
 

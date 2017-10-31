@@ -14,7 +14,7 @@
 #' @keywords parallel, hash, map, dict, split
 #' @export
 #' @examples
-#' asd <- data.frame(id = rep(letters, times = 5), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7'), size = 26 * 5, replace = T), stringsAsFactors = F)
+#' asd <- data.frame(id = rep(letters, times = 5), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7'), size = 26 * 5, replace = TRUE), stringsAsFactors = FALSE)
 #' h <- hashcol(asd$id)
 #' h
 #' keys(h)

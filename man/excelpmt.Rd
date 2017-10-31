@@ -18,10 +18,10 @@ excelpmt(rate, nper, pv, fv = 0, type = 0)
 \item{type}{matureity of the payment; 0 = end of period, 1 = beginning; (default is 0)}
 }
 \description{
-DESCRIPTION HERE
+https://gist.github.com/econ-r/dcd503815bbb271484ff
 }
 \examples{
-EXAMPLES HERE
+excelpmt(rate = .03, nper = 60, pv = 60000)
 }
 \keyword{amortization,}
 \keyword{excel,}

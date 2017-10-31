@@ -4,8 +4,8 @@
 \alias{grepdf}
 \title{Grep a data frame: many synergy, much useful, wow}
 \usage{
-grepdf(df_input, pattern, unique = T, save_df_name = F, save_col_name = F,
-  save_pattern = F, tibble = T, ...)
+grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
+  save_col_name = FALSE, save_pattern = FALSE, tibble = TRUE, ...)
 }
 \arguments{
 \item{df_input}{data frame to search}
@@ -20,7 +20,7 @@ grepdf(df_input, pattern, unique = T, save_df_name = F, save_col_name = F,
 
 \item{save_pattern}{include the pattern searched for in the returned results?}
 
-\item{tibble}{return a tibble? set to F for regular data.frame}
+\item{tibble}{return a tibble? set to FALSE for regular data.frame}
 
 \item{...}{additional arguments for grep function}
 }
@@ -34,8 +34,8 @@ Another use case not yet built in is identify data missingness.
 grepdf(
       df_input = iris
     , pattern  = '3.1|5.9'
-    , unique   = F
-    , tibble   = F
+    , unique   = FALSE
+    , tibble   = FALSE
 )
 }
 \keyword{amortization,}

@@ -10,10 +10,10 @@
 #' @examples
 #' right(vec = 'SomethingLong', n = 4)
 #' right(vec = 425575.4, n = 5)
-#' right(vec = 'AnotherThing  ', n = 7, trimws = F)
-#' right(vec = 401.98, 4, sameclass = T)
+#' right(vec = 'AnotherThing  ', n = 7, trimws = FALSE)
+#' right(vec = 401.98, 4, sameclass = TRUE)
 
-right <- function(vec, n, trimws = T, sameclass = F){
+right <- function(vec, n, trimws = TRUE, sameclass = FALSE){
 
     # CHECK THE PARAMS FOR COMPATIBILITY
     if(!is.numeric(n)){
@@ -28,7 +28,7 @@ right <- function(vec, n, trimws = T, sameclass = F){
     if(inherits(vec, 'date') |
        inherits(vec, 'POSIXt')
        ){
-        sameclass <- F # Can't return a date
+        sameclass <- FALSE # Can't return a date
         warning("Input vector class was date or POSIXt, output vector is character")
     }
 

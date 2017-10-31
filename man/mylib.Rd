@@ -4,7 +4,7 @@
 \alias{mylib}
 \title{Easily load multiple libraries without many library calls}
 \usage{
-mylib(..., suppress = T)
+mylib(..., suppress = TRUE)
 }
 \arguments{
 \item{...}{An itemized listing of R package names to either install and load, or just load.}

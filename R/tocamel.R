@@ -9,10 +9,10 @@
 #' @examples
 #' tocamel("jonny appleseed")
 #' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
-#' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = T)
+#' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 #' tocamel("GraNDpa CrIPEs -mcgee!!!!")
 
-tocamel <- function(..., sep = '\\W+', collapseall = F){
+tocamel <- function(..., sep = '\\W+', collapseall = FALSE){
     strList <- list(...)
     # test to see if original input was already a list
     if(class(strList[[1]]) == 'list'){
@@ -27,7 +27,7 @@ tocamel <- function(..., sep = '\\W+', collapseall = F){
         paste0(up, low, collapse = '')
     }
 
-    if(collapseall == F){
+    if(collapseall == FALSE){
         if(length(strList) > 1){
             return(lapply(strList, function(x) sapply(x, camel)))
         } else {

@@ -12,7 +12,7 @@
 #' @param save_df_name include the input data frame name in the returned results?
 #' @param save_col_name include the matched value column name in the returned results?
 #' @param save_pattern include the pattern searched for in the returned results?
-#' @param tibble return a tibble? set to F for regular data.frame
+#' @param tibble return a tibble? set to FALSE for regular data.frame
 #' @param ... additional arguments for grep function
 #' @keywords finance, amortization, excel, payment
 #' @export
@@ -20,27 +20,27 @@
 #' grepdf(
 #'       df_input = iris
 #'     , pattern  = '3.1|5.9'
-#'     , unique   = F
-#'     , tibble   = F
+#'     , unique   = FALSE
+#'     , tibble   = FALSE
 #' )
 
 
 grepdf <- function(
       df_input
     , pattern
-    , unique        = T
-    , save_df_name  = F
-    , save_col_name = F
-    , save_pattern  = F
-    , tibble        = T
+    , unique        = TRUE
+    , save_df_name  = FALSE
+    , save_col_name = FALSE
+    , save_pattern  = FALSE
+    , tibble        = TRUE
     , ...
 ){
     ## make sure everything is a character vector and also a data frame
     df <- as.data.frame(sapply(df_input, as.character))
 
-    if(!exists('ignore.case')) ignore.case = T
-    if(!exists('invert')) invert = F
-    if(!exists('fixed')) fixed = F
+    if(!exists('ignore.case')) ignore.case = TRUE
+    if(!exists('invert')) invert = FALSE
+    if(!exists('fixed')) fixed = FALSE
 
     ## grep every column to capture the rows of the matches
     df <- lapply(df, function(X){

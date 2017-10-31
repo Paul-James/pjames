@@ -7,11 +7,11 @@
 #' @keywords combine columns
 #' @export
 #' @examples
-#' df <- data.frame(performingPhysio = c("jill", "jack", '', ''), operatingPhysio = c(NA, NA, NA, "shankman"), stringsAsFactors = F)
+#' df <- data.frame(performingPhysio = c("jill", "jack", '', ''), operatingPhysio = c(NA, NA, NA, "shankman"), stringsAsFactors = FALSE)
 #' df$physios <- combineCols(df$performingPhysio, df$operatingPhysio, na.string = c('', NA), returntype = 'character')
 #' df
 #'
-#' asd <- data.frame(col1 = as.factor(c(1:5, rep("", 15))), col2 = as.integer(c(rep("", 7), 8:13, rep("", 7))), col3 = c(rep("", 15), 16:20), stringsAsFactors = F)
+#' asd <- data.frame(col1 = as.factor(c(1:5, rep("", 15))), col2 = as.integer(c(rep("", 7), 8:13, rep("", 7))), col3 = c(rep("", 15), 16:20), stringsAsFactors = FALSE)
 #' qwe <- lapply(asd, function(x) x)
 #'
 #' asd$newCol1 <- combineCols(asd$col1, asd$col2, asd$col3, na.string = '', returntype = 'integer')
@@ -39,7 +39,7 @@ combinecols <- function(
     }
 
     # test for factors and set indicator
-    if('factor' %in% sapply(cols, class) == T){
+    if('factor' %in% sapply(cols, class) == TRUE){
         fac <- sapply(cols, class) %in% 'factor'
         cols[fac] <- lapply(cols[fac], as.character)
     }

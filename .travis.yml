@@ -1,0 +1,24 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: r
+
+sudo: false
+
+cache: packages
+
+before_install:
+
+after_success:
+  - Rscript -e 'covr::codecov()'
+
+os:
+  - linux
+  - osx
+
+r:
+  - oldrel
+  - release
+
+notifications:
+  email:
+    - paul.james379@gmail.com

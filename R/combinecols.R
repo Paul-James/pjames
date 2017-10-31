@@ -8,14 +8,14 @@
 #' @export
 #' @examples
 #' df <- data.frame(performingPhysio = c("jill", "jack", '', ''), operatingPhysio = c(NA, NA, NA, "shankman"), stringsAsFactors = FALSE)
-#' df$physios <- combineCols(df$performingPhysio, df$operatingPhysio, na.string = c('', NA), returntype = 'character')
+#' df$physios <- combinecols(df$performingPhysio, df$operatingPhysio, na.string = c('', NA), returntype = 'character')
 #' df
 #'
 #' asd <- data.frame(col1 = as.factor(c(1:5, rep("", 15))), col2 = as.integer(c(rep("", 7), 8:13, rep("", 7))), col3 = c(rep("", 15), 16:20), stringsAsFactors = FALSE)
 #' qwe <- lapply(asd, function(x) x)
 #'
-#' asd$newCol1 <- combineCols(asd$col1, asd$col2, asd$col3, na.string = '', returntype = 'integer')
-#' asd$newCol2 <- combineCols(qwe, na.string = '', returntype = 'factor')
+#' asd$newCol1 <- combinecols(asd$col1, asd$col2, asd$col3, na.string = '', returntype = 'integer')
+#' asd$newCol2 <- combinecols(qwe, na.string = '', returntype = 'factor')
 #' asd
 
 combinecols <- function(

@@ -23,7 +23,7 @@
 #'     )
 #'   , stringsAsFactors = FALSE
 #'   )
-#' h <- hashcol(asd$id)
+#' h <- hashcol(asd$id, n.cores = 4)
 #' h
 #'
 #' keys(h)

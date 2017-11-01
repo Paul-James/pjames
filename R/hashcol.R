@@ -10,7 +10,7 @@
 #' Be warned and be smart, use this with as little in the global env as possible!
 #'
 #' @param X A dataframe column you want to group by. IE: df$id
-#' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is the total number of available cores on the CPU.
+#' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU.
 #' @keywords parallel, hash, map, dict, split
 #' @export
 #' @examples
@@ -33,7 +33,7 @@
 #' h[[keys(h)[26]]] # value accessor method; same as next line
 #' values(h)[ , 26] # value accessor method; same as previous line
 
-hashcol <- function(X, n.cores = detectCores()){
+hashcol <- function(X, n.cores = detectCores() - 1){
 
   # mclapply()
   suppressMessages(require(parallel))
@@ -52,11 +52,18 @@ hashcol <- function(X, n.cores = detectCores()){
   keys <- unique(X)
 
   ##
-  vals <- mclapply(
-      X        = keys
-    , FUN      = function(Y) which(X == Y)
-    , mc.cores = n.cores
+  if(tolower(Sys.info()['sysname']) == 'windows'){
+    vals <- lapply(
+        X   = keys
+      , FUN = function(Y) which(X == Y)
     )
+  } else {
+    vals <- mclapply(
+        X        = keys
+      , FUN      = function(Y) which(X == Y)
+      , mc.cores = n.cores
+    )
+  }
 
   ##
   names(vals) <- keys

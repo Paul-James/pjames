@@ -4,12 +4,12 @@
 \alias{hashcol}
 \title{Create a grouped hash table instead of using split()}
 \usage{
-hashcol(X, n.cores = detectCores())
+hashcol(X, n.cores = detectCores() - 1)
 }
 \arguments{
 \item{X}{A dataframe column you want to group by. IE: df$id}
 
-\item{n.cores}{An integer value that indicates the number of cores you want to run the process on. The default is the total number of available cores on the CPU.}
+\item{n.cores}{An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU.}
 }
 \description{
 Takes a dataframe column you want to group by and returns a hash table. The keys are the unique values of the group by column and the values are the row numbers where each key is found. This is parallelized across all available cores on your CPU and is a direct and much faster replacement of split(df, df$group_by).

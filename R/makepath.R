@@ -53,7 +53,7 @@
 
 ## A FUNCTION THAT MAKES A PATHWAY VARIABLE ----
 makepath <- function(
-  groupcol
+    groupcol
   , pathcol
   , sep        = '-'
   , subset     = FALSE
@@ -64,6 +64,8 @@ makepath <- function(
 
   # required packages
   suppressMessages(require(dplyr))
+  suppressMessages(require(parallel))
+  suppressMessages(require(hash))
 
   # group each person's obs together
   personH <- hashcol(groupcol)
@@ -124,7 +126,6 @@ makepath <- function(
     , mclapply(
         keys(personH)
       , function(X) pathVec(X, subset = subset)
-      , mc.cores = detectCores()
       )
     )
 

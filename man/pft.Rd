@@ -4,7 +4,7 @@
 \alias{pft}
 \title{Print the full time}
 \usage{
-pft(td)
+pft(td = Sys.time())
 }
 \arguments{
 \item{td}{A POSIX date time object. Defaults to Sys.time() if no time is provided.}

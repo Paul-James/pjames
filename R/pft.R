@@ -7,4 +7,4 @@
 #' @examples
 #' pft()
 
-pft <- function(td) strftime(td = Sys.time(), format = "%a %b-%d-%Y, %H:%M")
+pft <- function(td = Sys.time()) strftime(td, format = "%a %b-%d-%Y, %H:%M")

@@ -36,11 +36,15 @@
 hashcol <- function(X, n.cores = detectCores()){
 
   # mclapply()
-  ifelse(
-      test = tolower(Sys.info()['sysname']) == 'windows'
-    , yes  = suppressMessages(require(parallelsugar))
-    , no   = suppressMessages(require(parallel))
-  )
+  suppressMessages(require(parallel))
+
+  ## TODO: TEST WINDOWS PARALLEL
+  # ifelse(
+  #     test = tolower(Sys.info()['sysname']) == 'windows'
+  #   , yes  = suppressMessages(require(parallelsugar))
+  #   , no   = suppressMessages(require(parallel))
+  # )
+
   # hash()
   suppressMessages(require(hash))
 

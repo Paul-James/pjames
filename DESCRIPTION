@@ -25,8 +25,6 @@ Imports:
   , magrittr
   , parallel
   , utils
-Remotes: github::nathanvan/parallelsugar
-Enhances: 
 Encoding: UTF-8
 License: MIT + file LICENSE
 LazyData: true

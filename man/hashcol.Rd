@@ -15,10 +15,10 @@ hashcol(X, n.cores = detectCores() - 1)
 Takes a dataframe column you want to group by and returns a hash table. The keys are the unique values of the group by column and the values are the row numbers where each key is found. This is parallelized across all available cores on your CPU and is a direct and much faster replacement of split(df, df$group_by).
 }
 \details{
-Check the OS and chooses the correct package to use for mclapply. `parallelsugar` is used for Windows while `parallel` is used for everything else.
+Check the OS and chooses the correct package to use for mclapply. \code{parallelsugar} is used for Windows while \code{parallel} is used for everything else.
 
 WARNING FOR WINDOWS USERS:
-By design, `parallelsugar` approximates a fork based cluster -- every object that is within scope to the master R process is copied over to the processes on the other sockets. This implies that 1) you can quickly run out of memory, and 2) you can waste a lot of time copying over unnecessary objects hanging around in your R session.
+By design, \code{parallelsugar} approximates a fork based cluster -- every object that is within scope to the master R process is copied over to the processes on the other sockets. This implies that 1) you can quickly run out of memory, and 2) you can waste a lot of time copying over unnecessary objects hanging around in your R session.
 
 Be warned and be smart, use this with as little in the global env as possible!
 }

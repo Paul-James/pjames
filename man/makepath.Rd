@@ -24,8 +24,10 @@ makepath(groupcol, pathcol, sep = "-", subset = FALSE, keepvalues,
 }
 \description{
 Feature Requests:
-1) a time variable and business rules based on date times;
-2) step grouping (IE: step1, step2, step3 = phase1; step4, step5 = phase2; etc.). Takes a dataframe column you want to group by, and a column you want to make a pathway out of and returns a pathway vector the size of your original data. Used when you want to know unique combinations of steps in order to count or group by. A medical pathway or business process steps are good use cases.
+\enumerate{
+\item a time variable and business rules based on date times;
+\item step grouping (IE: step1, step2, step3 = phase1; step4, step5 = phase2; etc.). Takes a dataframe column you want to group by, and a column you want to make a pathway out of and returns a pathway vector the size of your original data. Used when you want to know unique combinations of steps in order to count or group by. A medical pathway or business process steps are good use cases.
+}
 }
 \examples{
 asd <- data.frame(

@@ -9,7 +9,7 @@ tocapital(..., sep = "\\\\s+", collapseall = FALSE)
 \arguments{
 \item{...}{A string, vector of strings, or list of strings in any letter case pattern.}
 
-\item{sep}{A character vector containing characters or regular expression(s) to use for splitting. Default is "\\s+" (one or more whitespace characters).}
+\item{sep}{A character vector containing characters or regular expression(s) to use for splitting. Default is "\s+" (one or more whitespace characters).}
 
 \item{collapseall}{A logical/boolean flag to indicate whether or not you want a single string as your output (TRUE), or multiple strings (FALSE). Default is FALSE.}
 }

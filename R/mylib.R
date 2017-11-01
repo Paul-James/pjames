@@ -5,9 +5,10 @@
 #' @param suppress A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to FALSE to view all messages.
 #' @keywords library, install, package
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' mylib(c("RPostgreSQL", "stringr", "dplyr"))
 #' mylib("data.table")
+#' }
 
 mylib <- function(
     ...

@@ -15,8 +15,10 @@ mylib(..., suppress = TRUE)
 Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first.
 }
 \examples{
+\dontrun{
 mylib(c("RPostgreSQL", "stringr", "dplyr"))
 mylib("data.table")
+}
 }
 \keyword{install,}
 \keyword{library,}

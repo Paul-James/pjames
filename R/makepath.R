@@ -64,7 +64,6 @@ makepath <- function(
 
   # required packages
   suppressMessages(require(dplyr))
-  suppressMessages(require(pjames))
 
   # group each person's obs together
   personH <- hashcol(groupcol)

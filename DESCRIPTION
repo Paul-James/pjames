@@ -4,8 +4,8 @@ Title: Local Helper Functions
 Version: 0.5.0
 Date: 2017-06-08
 Authors@R: c(
-      person("Paul", "James", email = "paul.james379@gmail.com", role = c("aut", "cre"))
-    )
+  person("Paul", "James", email = "paul.james379@gmail.com", role = c("aut", "cre"))
+  )
 Maintainer: Paul James <paul.james379@gmail.com>
 Description: A collection of functions put together for use by me.
     This is meant to help keep .Rprofile and the global environment clear. For example, the rm(list = ls()) command
@@ -18,9 +18,19 @@ Description: A collection of functions put together for use by me.
     script).
 Depends:
     R (>= 3.1.2)
-Imports:
+Imports: 
     hash
+  , dplyr
+  , tibble
+  , magrittr
+  , parallel
+  , parallelsugar
+  , utils
+Enhances: 
+Encoding: UTF-8
 License: GPL-2
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: covr
+Suggests:
+    covr
+  , testthat

@@ -7,65 +7,90 @@
 #' @keywords combine columns
 #' @export
 #' @examples
-#' df <- data.frame(performingPhysio = c("jill", "jack", '', ''), operatingPhysio = c(NA, NA, NA, "shankman"), stringsAsFactors = FALSE)
-#' df$physios <- combinecols(df$performingPhysio, df$operatingPhysio, na.string = c('', NA), returntype = 'character')
+#' df <- data.frame(
+#'     performingPhysio = c("jill", "jack", '', '')
+#'   , operatingPhysio  = c(NA, NA, NA, "shankman")
+#'   , stringsAsFactors = FALSE
+#'   )
+#' df$physios <- combinecols(
+#'     df$performingPhysio
+#'   , df$operatingPhysio
+#'   , na.string  = c('', NA)
+#'   , returntype = 'character'
+#'   )
 #' df
 #'
-#' asd <- data.frame(col1 = as.factor(c(1:5, rep("", 15))), col2 = as.integer(c(rep("", 7), 8:13, rep("", 7))), col3 = c(rep("", 15), 16:20), stringsAsFactors = FALSE)
+#' asd <- data.frame(
+#'     col1             = as.factor(c(1:5, rep("", 15)))
+#'   , col2             = as.integer(c(rep("", 7), 8:13, rep("", 7)))
+#'   , col3             = c(rep("", 15), 16:20)
+#'   , stringsAsFactors = FALSE
+#'   )
+#'
 #' qwe <- lapply(asd, function(x) x)
 #'
-#' asd$newCol1 <- combinecols(asd$col1, asd$col2, asd$col3, na.string = '', returntype = 'integer')
-#' asd$newCol2 <- combinecols(qwe, na.string = '', returntype = 'factor')
+#' asd$newCol1 <- combinecols(
+#'     asd$col1
+#'   , asd$col2
+#'   , asd$col3
+#'   , na.string  = ''
+#'   , returntype = 'integer'
+#'   )
+#' asd$newCol2 <- combinecols(
+#'     qwe
+#'   , na.string  = ''
+#'   , returntype = 'factor'
+#'   )
 #' asd
 
 combinecols <- function(
-      ...
-    , na.string = NA
-    , returntype = c('character', 'factor', 'integer', 'numeric')
-    ){
+    ...
+  , na.string  = NA
+  , returntype = c('character', 'factor', 'integer', 'numeric')
+  ){
 
-    returntype <- match.arg(returntype)
+  returntype <- match.arg(returntype)
 
-    cols <- list(...)
+  cols <- list(...)
 
-    # test to see if original input was already a list
-    if(class(cols[[1]]) == 'list'){
-      cols <- cols[[1]]
-    }
+  # test to see if original input was already a list
+  if(class(cols[[1]]) == 'list'){
+    cols <- cols[[1]]
+  }
 
-    # test to see if original input was a dataframe
-    if(class(cols[[1]]) == 'data.frame'){
-      cols <- lapply(cols, function(X) X)
-    }
+  # test to see if original input was a dataframe
+  if(class(cols[[1]]) == 'data.frame'){
+    cols <- lapply(cols, function(X) X)
+  }
 
-    # test for factors and set indicator
-    if('factor' %in% sapply(cols, class) == TRUE){
-        fac <- sapply(cols, class) %in% 'factor'
-        cols[fac] <- lapply(cols[fac], as.character)
-    }
+  # test for factors and set indicator
+  if('factor' %in% sapply(cols, class) == TRUE){
+    fac <- sapply(cols, class) %in% 'factor'
+    cols[fac] <- lapply(cols[fac], as.character)
+  }
 
-    # initiate the new combined column with NA's
-    new.col <- rep(NA, times = length(cols[[1]]))
+  # initiate the new combined column with NA's
+  new.col <- rep(NA, times = length(cols[[1]]))
 
-    # convert the na.string's to NA
-    na <- function(x, na.str = na.string){
-        x[x %in% na.string] <- NA
-        x
-    }
-    cols <- lapply(cols, na)
+  # convert the na.string's to NA
+  na <- function(x, na.str = na.string){
+    x[x %in% na.string] <- NA
+    x
+  }
+  cols <- lapply(cols, na)
 
-    # add non NA values to the combined column
-    for(I in 1:length(cols)){
-        new.col[!is.na(cols[[I]])] <- cols[[I]][!is.na(cols[[I]])]
-    }
+  # add non NA values to the combined column
+  for(I in 1:length(cols)){
+    new.col[!is.na(cols[[I]])] <- cols[[I]][!is.na(cols[[I]])]
+  }
 
-    if(returntype == 'factor'){ # return a factored column
-        as.factor(new.col)
-    } else if(returntype == 'integer'){ # return an integer column
-        as.integer(new.col)
-    } else if(returntype == 'numeric'){ # return a numeric column
-        as.numeric(new.col)
-    } else {
-        new.col # return a character column
-    }
+  if(returntype == 'factor'){ # return a factored column
+    as.factor(new.col)
+  } else if(returntype == 'integer'){ # return an integer column
+    as.integer(new.col)
+  } else if(returntype == 'numeric'){ # return a numeric column
+    as.numeric(new.col)
+  } else {
+    new.col # return a character column
+  }
 }

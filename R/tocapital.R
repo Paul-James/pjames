@@ -8,11 +8,26 @@
 #' @export
 #' @examples
 #' tocapital("jonny appleseed")
-#' tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"))
-#' tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"), collapseall = TRUE)
+#'
+#' tocapital(
+#'     c("THE", "DARK", "KNIGHT")
+#'   , c("rises", "from", "the", "lazerus", "PIT")
+#' )
+#'
+#' tocapital(
+#'     c("THE", "DARK", "KNIGHT")
+#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   , collapseall = TRUE
+#' )
+#'
 #' tocapital("GraNDpa CrIPEs -mcgee")
 
-tocapital <- function(..., sep = '\\s+', collapseall = FALSE){
+tocapital <- function(
+    ...
+  , sep         = '\\s+'
+  , collapseall = FALSE
+  ){
+
   strList <- list(...)
 
   # test to see if original input was already a list
@@ -33,8 +48,20 @@ tocapital <- function(..., sep = '\\s+', collapseall = FALSE){
     low <- tolower(substring(strVec, 2))
 
     # make sure hyphenated and "Mc" words get capitalized right
-    low <- gsub("(-)(.)", "\\1\\U\\2", low, perl = TRUE, ignore.case = TRUE)
-    low[doubleCap] <- gsub("(^c|mc)(.)", "\\1\\U\\2", low[doubleCap], perl = TRUE, ignore.case = TRUE)
+    low <- gsub(
+        "(-)(.)"
+      , "\\1\\U\\2"
+      , low
+      , perl        = TRUE
+      , ignore.case = TRUE
+      )
+    low[doubleCap] <- gsub(
+        "(^c|mc)(.)"
+      , "\\1\\U\\2"
+      , low[doubleCap]
+      , perl        = TRUE
+      , ignore.case = TRUE
+      )
 
     paste(up, low, sep = '', collapse = ' ')
   }

@@ -14,11 +14,21 @@
 #' @keywords parallel, hash, map, dict, split
 #' @export
 #' @examples
-#' asd <- data.frame(id = rep(letters, times = 5), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7'), size = 26 * 5, replace = TRUE), stringsAsFactors = FALSE)
+#' asd <- data.frame(
+#'     id               = rep(letters, times = 5)
+#'   , service          = sample(
+#'       c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7')
+#'     , size    = 26 * 5
+#'     , replace = TRUE
+#'     )
+#'   , stringsAsFactors = FALSE
+#'   )
 #' h <- hashcol(asd$id)
 #' h
+#'
 #' keys(h)
 #' values(h)
+#'
 #' h[keys(h)[26]] # key value pair
 #' h[[keys(h)[26]]] # value accessor method; same as next line
 #' values(h)[ , 26] # value accessor method; same as previous line

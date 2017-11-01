@@ -44,12 +44,12 @@ Get a GitHub `PAT` (`GitHub user profile` > `Settings` > `Developer Settings` > 
 
 ```{r}
 cat(
-      'GITHUB_PAT=[replace-me-(brackets-as-well)-with-PAT]\n'
-    , file   = file.path(
-          normalizePath('~/')
-        , '.Renviron'
-        )
-    , append = T
+    'GITHUB_PAT=[replace-me-(brackets-as-well)-with-PAT]\n'
+  , file   = file.path(
+      normalizePath('~/')
+    , '.Renviron'
+    )
+  , append = T
 )
 ```
 

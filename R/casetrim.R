@@ -10,36 +10,37 @@
 #' ## Need examples...too lazy to make of find a dirty dataset to clean.
 
 casetrim <- function(
-      df
-    , case       = c('upper', 'lower')
-    , colclasses = c('asis', 'character')
-    ){
-
-    suppressMessages(require(magrittr))
-
-    case <- match.arg(case)
-    colclasses <- match.arg(colclasses)
-
-    classes <- sapply(df, class)
-
-    if(case == 'upper'){
-        df %<>%
-            sapply(function(XX) toupper(trimws(XX))) %>%
-            data.frame()
-    } else {
-        df %<>%
-            sapply(function(XX) tolower(trimws(XX))) %>%
-            data.frame()
-    }
-
-    if(colclasses == 'asis'){
-        df[] <- Map('class<-', df, classes)
-    }
-
-    names(df) %<>%
-        {gsub('[[:punct:]]+|\\s+', '_', tolower(trimws(.)))} %>%
-        {gsub('_+', '_', .)} %>%
-        {gsub('^_|_$', '', .)}
-
     df
+  , case       = c('upper', 'lower')
+  , colclasses = c('asis', 'character')
+  ){
+
+  suppressMessages(require(magrittr))
+  suppressMessages(require(dplyr))
+
+  case <- match.arg(case)
+  colclasses <- match.arg(colclasses)
+
+  classes <- sapply(df, class)
+
+  if(case == 'upper'){
+    df %<>%
+      sapply(function(XX) toupper(trimws(XX))) %>%
+      data.frame()
+  } else {
+    df %<>%
+      sapply(function(XX) tolower(trimws(XX))) %>%
+      data.frame()
+  }
+
+  if(colclasses == 'asis'){
+    df[] <- Map('class<-', df, classes)
+  }
+
+  names(df) %<>%
+    {gsub('[[:punct:]]+|\\s+', '_', tolower(trimws(.)))} %>%
+    {gsub('_+', '_', .)} %>%
+    {gsub('^_|_$', '', .)}
+
+  df
 }

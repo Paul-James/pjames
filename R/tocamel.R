@@ -12,28 +12,36 @@
 #' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 #' tocamel("GraNDpa CrIPEs -mcgee!!!!")
 
-tocamel <- function(..., sep = '\\W+', collapseall = FALSE){
-    strList <- list(...)
-    # test to see if original input was already a list
-    if(class(strList[[1]]) == 'list'){
-        strList <- strList[[1]]
-    }
-    strList <- lapply(strList, as.list)
+tocamel <- function(
+    ...
+  , sep         = '\\W+'
+  , collapseall = FALSE
+  ){
 
-    camel <- function(string){
-        strVec <- unlist(strsplit(string, split = sep))
-        up <- toupper(substring(strVec, 1, 1))
-        low <- tolower(substring(strVec, 2))
-        paste0(up, low, collapse = '')
-    }
+  strList <- list(...)
 
-    if(collapseall == FALSE){
-        if(length(strList) > 1){
-            return(lapply(strList, function(x) sapply(x, camel)))
-        } else {
-            return(unlist(lapply(strList, function(x) sapply(x, camel))))
-        }
+  # test to see if original input was already a list
+  if(class(strList[[1]]) == 'list'){
+    strList <- strList[[1]]
+  }
+  strList <- lapply(strList, as.list)
+
+  camel <- function(string){
+
+    strVec <- unlist(strsplit(string, split = sep))
+    up     <- toupper(substring(strVec, 1, 1))
+    low    <- tolower(substring(strVec, 2))
+
+    paste0(up, low, collapse = '')
+  }
+
+  if(collapseall == FALSE){
+    if(length(strList) > 1){
+      return(lapply(strList, function(x) sapply(x, camel)))
     } else {
-        return(paste0(sapply(strList, function(x) camel(unlist(x))), collapse = ''))
+      return(unlist(lapply(strList, function(x) sapply(x, camel))))
     }
+  } else {
+    return(paste0(sapply(strList, function(x) camel(unlist(x))), collapse = ''))
+  }
 }

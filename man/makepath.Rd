@@ -28,12 +28,41 @@ Feature Requests:
 2) step grouping (IE: step1, step2, step3 = phase1; step4, step5 = phase2; etc.). Takes a dataframe column you want to group by, and a column you want to make a pathway out of and returns a pathway vector the size of your original data. Used when you want to know unique combinations of steps in order to count or group by. A medical pathway or business process steps are good use cases.
 }
 \examples{
-asd <- data.frame(id = rep(letters, times = 4), service = sample(c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7', 'install1', 'install2', 'install3', 'other'), size = 26 * 4, replace = TRUE), stringsAsFactors = FALSE)
+asd <- data.frame(
+    id               = rep(letters, times = 4)
+  , service          = sample(
+      c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7', 'install1', 'install2', 'install3', 'other')
+    , size    = 26 * 4
+    , replace = TRUE
+    )
+  , stringsAsFactors = FALSE
+  )
 
-asd$path1 <- makepath(groupcol = asd$id, pathcol = asd$service)
-asd$path2 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'))
-asd$path3 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = FALSE)
-asd$path4 <- makepath(groupcol = asd$id, pathcol = asd$service, subset = TRUE, keepvalues = c('ps1', 'ps2', 'ps3'), ordered = FALSE, keepconsec = TRUE)
+asd$path1 <- makepath(
+    groupcol = asd$id
+  , pathcol  = asd$service
+  )
+asd$path2 <- makepath(
+    groupcol   = asd$id
+  , pathcol    = asd$service
+  , subset     = TRUE
+  , keepvalues = c('ps1', 'ps2', 'ps3')
+  )
+asd$path3 <- makepath(
+    groupcol   = asd$id
+  , pathcol    = asd$service
+  , subset     = TRUE
+  , keepvalues = c('ps1', 'ps2', 'ps3')
+  , ordered    = FALSE
+  )
+asd$path4 <- makepath(
+    groupcol   = asd$id
+  , pathcol    = asd$service
+  , subset     = TRUE
+  , keepvalues = c('ps1', 'ps2', 'ps3')
+  , ordered    = FALSE
+  , keepconsec = TRUE
+  )
 
 asd
 }

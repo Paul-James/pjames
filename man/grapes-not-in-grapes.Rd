@@ -6,6 +6,11 @@
 \usage{
 x \%!in\% table
 }
+\arguments{
+\item{x}{vector or NLL: the values to be matched. Long Vectors are suppored.}
+
+\item{table}{vector or NULL: the values to be matched against. Long vectors are not supported.}
+}
 \description{
 An easier and more logical way to express "elements of object X not in object Y"; \%in\% and \%!in\% are wrappers for match; returns a vector of booleans.
 }

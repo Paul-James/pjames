@@ -18,8 +18,18 @@ Takes a string, vector(s) of strings, or list of strings and converts the case t
 }
 \examples{
 tocapital("jonny appleseed")
-tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"))
-tocapital(c("THE", "DARK", "KNIGHT"), c("rises", "from", "the", "lazerus", "PIT"), collapseall = TRUE)
+
+tocapital(
+    c("THE", "DARK", "KNIGHT")
+  , c("rises", "from", "the", "lazerus", "PIT")
+)
+
+tocapital(
+    c("THE", "DARK", "KNIGHT")
+  , c("rises", "from", "the", "lazerus", "PIT")
+  , collapseall = TRUE
+)
+
 tocapital("GraNDpa CrIPEs -mcgee")
 }
 \keyword{camelcase}

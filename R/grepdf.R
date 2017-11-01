@@ -18,104 +18,108 @@
 #' @export
 #' @examples
 #' grepdf(
-#'       df_input = iris
-#'     , pattern  = '3.1|5.9'
-#'     , unique   = FALSE
-#'     , tibble   = FALSE
+#'     df_input = iris
+#'   , pattern  = '3.1|5.9'
+#'   , unique   = FALSE
+#'   , tibble   = FALSE
 #' )
 
-
 grepdf <- function(
-      df_input
-    , pattern
-    , unique        = TRUE
-    , save_df_name  = FALSE
-    , save_col_name = FALSE
-    , save_pattern  = FALSE
-    , tibble        = TRUE
-    , ...
-){
-    ## make sure everything is a character vector and also a data frame
-    df <- as.data.frame(sapply(df_input, as.character))
+  df_input
+  , pattern
+  , unique        = TRUE
+  , save_df_name  = FALSE
+  , save_col_name = FALSE
+  , save_pattern  = FALSE
+  , tibble        = TRUE
+  , ...
+  ){
 
-    if(!exists('ignore.case')) ignore.case = TRUE
-    if(!exists('invert')) invert = FALSE
-    if(!exists('fixed')) fixed = FALSE
+  ## libs
+  suppressMessages(require(dplyr))
+  suppressMessages(require(tibble))
 
-    ## grep every column to capture the rows of the matches
-    df <- lapply(df, function(X){
-        suppressWarnings(grep(
-              pattern     = pattern
-            , x           = X
-            , ignore.case = ignore.case
-            , invert      = invert
-            , fixed       = fixed
-        ))
-    })
+  ## make sure everything is a character vector and also a data frame
+  df <- as.data.frame(sapply(df_input, as.character))
 
-    ## instantiate an empty list to fill with a loop
-    df_output <- list()
+  if(!exists('ignore.case')) ignore.case = TRUE
+  if(!exists('invert')) invert = FALSE
+  if(!exists('fixed')) fixed = FALSE
 
-    ## for every column that has matches create a data frame that identifies it
-    for(i in 1:length(df)){
+  ## grep every column to capture the rows of the matches
+  df <- lapply(df, function(X){
+    suppressWarnings(grep(
+        pattern     = pattern
+      , x           = X
+      , ignore.case = ignore.case
+      , invert      = invert
+      , fixed       = fixed
+    ))
+  })
 
-        if(length(df[[i]]) > 0){
+  ## instantiate an empty list to fill with a loop
+  df_output <- list()
 
-            df_output[[i]] <- data.frame(
-                  row_num  = df[[i]]
-                , col_num  = i
-            )
+  ## for every column that has matches create a data frame that identifies it
+  for(i in 1:length(df)){
 
-            ## include the matching value's column name in the output?
-            if(save_col_name){
-                df_output[[i]]$col_name <- names(df)[i]
-            }
-        }
+    if(length(df[[i]]) > 0){
+
+      df_output[[i]] <- data.frame(
+          row_num  = df[[i]]
+        , col_num  = i
+      )
+
+      ## include the matching value's column name in the output?
+      if(save_col_name){
+        df_output[[i]]$col_name <- names(df)[i]
+      }
     }
+  }
 
-    ## combine the list into a single dataframe and return it if there are matches
-    df_output <- dplyr::bind_rows(df_output)
+  ## combine the list into a single dataframe and return it if there are matches
+  df_output <- dplyr::bind_rows(df_output)
 
-    ## stop here if there are no matches
-    if(nrow(df_output) == 0){
-        stop(cat(sprintf(
-              "::| Sorry m8, no matches for pattern, '%s'. |::\n\n    ¯\\_(ツ)_/¯"
-            , pattern
-        )))
-    }
+  ## stop here if there are no matches
+  if(nrow(df_output) == 0){
+    stop(cat(sprintf(
+        "--| Sorry m8, no matches for pattern, '%s'. |--\n\n"
+      , pattern
+    )))
+  }
 
-    ## include the original data frame input name in the output?
-    if(save_df_name){
-        df_output$df_name <- deparse(substitute(df_input))
-    }
+  ## include the original data frame input name in the output?
+  if(save_df_name){
+    df_output$df_name <- deparse(substitute(df_input))
+  }
 
-    ## include the pattern searched for in the output?
-    if(save_pattern){
-        df_output$pattern <- pattern
-    }
+  ## include the pattern searched for in the output?
+  if(save_pattern){
+    df_output$pattern <- pattern
+  }
 
-    ## include what the matches were in the output
-    matches <- list()
+  ## include what the matches were in the output
+  matches <- list()
 
-    for(i in 1:nrow(df_output)){
-        matches[[i]] <- df_input[df_output$row_num[i], df_output$col_num[i]]
-    }
-    df_output$match <- unlist(matches)
+  for(i in 1:nrow(df_output)){
+    matches[[i]] <- df_input[df_output$row_num[i], df_output$col_num[i]]
+  }
+  df_output$match <- unlist(matches)
 
-    ## output the results
-    if(tibble){
+  ## output the results
+  if(tibble){
 
-        if(unique){
-            as_data_frame(df_output[!duplicated(df_output$row_num), ])
-        } else {
-            as_data_frame(df_output)
-        }
+    if(unique){
+      as_data_frame(df_output[!duplicated(df_output$row_num), ])
     } else {
-
-        if(unique){
-            df_output[!duplicated(df_output$row_num), ]
-        } else {
-            df_output
-        }
+      as_data_frame(df_output)
     }
+  } else {
+
+    if(unique){
+      df_output[!duplicated(df_output$row_num), ]
+    } else {
+      df_output
+    }
+  }
 }

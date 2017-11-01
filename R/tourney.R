@@ -8,7 +8,11 @@
 #' tourney('Andrew', 'David', 'Keith', 'Paul', 'Jordan', 'Cristian', 'Matthew', 'Blair')
 
 tourney <- function(...){
-    players <- unlist(list(...))
-    bracket <- data.frame(player = players[sample(1:length(players), replace = FALSE)])
-    View(bracket)
+  players <- unlist(list(...))
+
+  bracket <- data.frame(
+    player = players[sample(1:length(players), replace = FALSE)]
+    )
+
+  View(bracket)
 }

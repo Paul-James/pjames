@@ -9,22 +9,31 @@
 #' mylib(c("RPostgreSQL", "stringr", "dplyr"))
 #' mylib("data.table")
 
-mylib <- function(..., suppress = TRUE){
-    pkgNameVec <- unlist(list(...))
+mylib <- function(
+    ...
+  , suppress = TRUE
+  ){
 
-    for(i in seq_along(pkgNameVec)){
-        if(sum( grepl(pkgNameVec[i], library()[[2]]) ) == 0){
-            install.packages(pkgNameVec[i])
-        }
-        if(suppress == FALSE){
-            library(pkgNameVec[i],
-                    character.only = TRUE,
-                    quietly = TRUE)
-        } else {
-            suppressMessages(
-                library(pkgNameVec[i],
-                        character.only = TRUE,
-                        quietly = TRUE))
-        }
+  pkgNameVec <- unlist(list(...))
+
+  for(i in seq_along(pkgNameVec)){
+    if(sum( grepl(pkgNameVec[i], library()[[2]]) ) == 0){
+      install.packages(pkgNameVec[i])
     }
+    if(suppress == FALSE){
+      library(
+        pkgNameVec[i]
+        , character.only = TRUE
+        , quietly        = TRUE
+      )
+    } else {
+      suppressMessages(
+        library(
+            pkgNameVec[i]
+          , character.only = TRUE
+          , quietly        = TRUE
+        )
+      )
+    }
+  }
 }

@@ -13,55 +13,62 @@
 #' left(vec = '  AnotherThing', n = 4, trimws = FALSE)
 #' left(vec = 400, 1, sameclass = TRUE)
 
-left <- function(vec, n, trimws = TRUE, sameclass = FALSE){
+left <- function(
+    vec
+  , n
+  , trimws    = TRUE
+  , sameclass = FALSE
+  ){
 
-    # CHECK THE PARAMS FOR COMPATIBILITY
-    if(!is.numeric(n)){
-        stop("Nice try, but n has to be numeric.")
-    }
-    if(!is.logical(trimws)){
-        stop("Nice try, but trimws has to be logical.")
-    }
-    if(!is.logical(sameclass)){
-        stop("Nice try, but sameclass has to be logical.")
-    }
-    if(inherits(vec, 'date') |
-       inherits(vec, 'POSIXt')
-       ){
-        sameclass <- FALSE
-        warning("Input vector class was date or POSIXt, output vector is character")
-    }
+  # CHECK THE PARAMS FOR COMPATIBILITY
+  if(!is.numeric(n)){
+    stop("Nice try, but n has to be numeric.")
+  }
+  if(!is.logical(trimws)){
+    stop("Nice try, but trimws has to be logical.")
+  }
+  if(!is.logical(sameclass)){
+    stop("Nice try, but sameclass has to be logical.")
+  }
+  if(inherits(vec, 'date') |
+     inherits(vec, 'POSIXt')
+  ){
+    sameclass <- FALSE
+    warning("Input vector class was date or POSIXt, output vector is character")
+  }
 
-    # RUN CORRECT FUNCTION
-    if(trimws & !sameclass){
-        substring(trimws(vec, which = 'left')
-                  , first = 1
-                  , last = n
-        )
-    } else if(trimws & sameclass){
-        eval(parse(text = sprintf(
-            "as.%s(
-                substring(trimws(vec, which = 'left')
-                          , first = 1
-                          , last = n
-                )
-             )"
-            , class(vec)
-        )))
-    } else if(!trimws & !sameclass){
-        substring(vec
-                  , first = 1
-                  , last = n
-        )
-    } else {
-        eval(parse(text = sprintf(
-            "as.%s(
-                substring(vec
-                          , first = 1
-                          , last = n
-                )
-             )"
-            , class(vec)
-        )))
-    }
+  # RUN CORRECT FUNCTION
+  if(trimws & !sameclass){
+    substring(
+        text  = trimws(vec, which = 'left')
+      , first = 1
+      , last  = n
+    )
+  } else if(trimws & sameclass){
+    eval(parse(text = sprintf(
+      "as.%s(
+           substring(trimws(vec, which = 'left')
+         , first = 1
+         , last  = n
+         )
+       )"
+      , class(vec)
+    )))
+  } else if(!trimws & !sameclass){
+    substring(vec
+              , first = 1
+              , last  = n
+    )
+  } else {
+    eval(parse(text = sprintf(
+      "as.%s(
+         substring(
+             vec
+           , first = 1
+           , last  = n
+           )
+       )"
+      , class(vec)
+    )))
+  }
 }

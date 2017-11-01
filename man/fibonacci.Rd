@@ -11,19 +11,19 @@ fibonacci(seq_length = 10, first_num = 0, second_num = 1)
 
 \item{first_num}{The starting point of the sequence. Use any positive number that comes before second_num (first_num < second_num). The default is 0.}
 
-\item{second_num}{The next number in the sequence after frist_num. Use any posiitive number that comes after first_num (second_num > first_num). The default is 1.}
+\item{second_num}{The next number in the sequence after first_num. Use any positive number that comes after first_num (second_num > first_num). The default is 1.}
 }
 \description{
 Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
 }
 \examples{
 \dontrun{
-fibonacci('eight', 2, -1)  # wrong way 1
-fibonacci(8, 2, -1)  # wrong way 2
-fibonacci(8, 2, 1)  # wrong way 3
-fibonacci(8, 2, 2) # wrong way 4
+fibonacci('eight', 2, -1)  # wrong #1
+fibonacci(8, 2, -1)  # wrong #2
+fibonacci(8, 2, 1)  # wrong #3
+fibonacci(8, 2, 2) # wrong #4
 }
-fibonacci(8, 10, 2)  # correct way!
+fibonacci(8, 10, 12)  # correct!
 fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 fibonacci(30)
 fibonacci()

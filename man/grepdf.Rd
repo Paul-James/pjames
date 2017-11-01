@@ -32,10 +32,10 @@ Another use case not yet built in is identify data missingness.
 }
 \examples{
 grepdf(
-      df_input = iris
-    , pattern  = '3.1|5.9'
-    , unique   = FALSE
-    , tibble   = FALSE
+    df_input = iris
+  , pattern  = '3.1|5.9'
+  , unique   = FALSE
+  , tibble   = FALSE
 )
 }
 \keyword{amortization,}

@@ -18,15 +18,40 @@ combinecols(..., na.string = NA, returntype = c("character", "factor",
 Takes a collection of columns as a list, a dataframe, or equal length vectors and merges them together. This is used when you want to combine 2 or more similar columns after a merge/join/rbind and the values don't overlap (if the values overlap, overlapped values will be lost). The collection can be various data types.
 }
 \examples{
-df <- data.frame(performingPhysio = c("jill", "jack", '', ''), operatingPhysio = c(NA, NA, NA, "shankman"), stringsAsFactors = FALSE)
-df$physios <- combinecols(df$performingPhysio, df$operatingPhysio, na.string = c('', NA), returntype = 'character')
+df <- data.frame(
+    performingPhysio = c("jill", "jack", '', '')
+  , operatingPhysio  = c(NA, NA, NA, "shankman")
+  , stringsAsFactors = FALSE
+  )
+df$physios <- combinecols(
+    df$performingPhysio
+  , df$operatingPhysio
+  , na.string  = c('', NA)
+  , returntype = 'character'
+  )
 df
 
-asd <- data.frame(col1 = as.factor(c(1:5, rep("", 15))), col2 = as.integer(c(rep("", 7), 8:13, rep("", 7))), col3 = c(rep("", 15), 16:20), stringsAsFactors = FALSE)
+asd <- data.frame(
+    col1             = as.factor(c(1:5, rep("", 15)))
+  , col2             = as.integer(c(rep("", 7), 8:13, rep("", 7)))
+  , col3             = c(rep("", 15), 16:20)
+  , stringsAsFactors = FALSE
+  )
+
 qwe <- lapply(asd, function(x) x)
 
-asd$newCol1 <- combinecols(asd$col1, asd$col2, asd$col3, na.string = '', returntype = 'integer')
-asd$newCol2 <- combinecols(qwe, na.string = '', returntype = 'factor')
+asd$newCol1 <- combinecols(
+    asd$col1
+  , asd$col2
+  , asd$col3
+  , na.string  = ''
+  , returntype = 'integer'
+  )
+asd$newCol2 <- combinecols(
+    qwe
+  , na.string  = ''
+  , returntype = 'factor'
+  )
 asd
 }
 \keyword{columns}

@@ -14,5 +14,6 @@ tourney <- function(...){
     player = players[sample(1:length(players), replace = FALSE)]
     )
 
-  View(bracket)
+  ##
+  bracket
 }

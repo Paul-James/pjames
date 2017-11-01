@@ -24,11 +24,11 @@ Imports:
   , tibble
   , magrittr
   , parallel
-  , parallelsugar
   , utils
+Remotes: github::nathanvan/parallelsugar
 Enhances: 
 Encoding: UTF-8
-License: GPL-2
+License: MIT + file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests:

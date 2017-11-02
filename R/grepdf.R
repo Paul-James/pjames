@@ -83,7 +83,7 @@ grepdf <- function(
   ## stop here if there are no matches
   if(nrow(df_output) == 0){
     stop(cat(sprintf(
-        "--| Sorry m8, no matches for pattern, '%s'. | ¯\\_(ツ)_/¯ |--\n\n"
+        "--| Sorry m8, no matches for pattern, '%s'. | ¯\\_(\u30c4)_/¯ |--\n\n"
       , pattern
     )))
   }

@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-Paul's Personal Package Panacea <img src='assets/pkg-hexsticker.png' align='right' width=100/>
+Paul's Personal Package Panacea <img src='assets/pkg-hexsticker.png' align='right' width=120/>
 ==============================================================================================
 
 [![Travis-CI Build Status](https://travis-ci.org/paul-james/pjames.svg?branch=master)](https://travis-ci.org/paul-james/pjames) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/paul-james/pjames?branch=master&svg=true)](https://ci.appveyor.com/project/paul-james/pjames) [![Coverage Status](https://img.shields.io/codecov/c/github/paul-james/pjames/master.svg)](https://codecov.io/github/paul-james/pjames?branch=master)

@@ -16,7 +16,9 @@
 #' asd <- data.frame(
 #'     id               = rep(letters, times = 4)
 #'   , service          = sample(
-#'       c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7', 'install1', 'install2', 'install3', 'other')
+#'       c('ps1', 'ps2', 'ps3', 'ps4', 'ps5', 'ps6', 'ps7'
+#'         , 'install1', 'install2', 'install3', 'other'
+#'         )
 #'     , size    = 26 * 4
 #'     , replace = TRUE
 #'     )

@@ -36,8 +36,8 @@ grepdf <- function(
   ){
 
   ## libs
-  suppressMessages(require(dplyr))
-  suppressMessages(require(tibble))
+  suppressMessages(library(dplyr))
+  suppressMessages(library(tibble))
 
   ## make sure everything is a character vector and also a data frame
   df <- as.data.frame(sapply(df_input, as.character))

@@ -15,8 +15,8 @@ casetrim <- function(
   , colclasses = c('asis', 'character')
   ){
 
-  suppressMessages(require(magrittr))
-  suppressMessages(require(dplyr))
+  suppressMessages(library(magrittr))
+  suppressMessages(library(dplyr))
 
   case <- match.arg(case)
   colclasses <- match.arg(colclasses)

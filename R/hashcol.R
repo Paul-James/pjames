@@ -7,7 +7,7 @@
 #' WARNING FOR WINDOWS USERS: not useful. only runs lapply.
 #'
 #' @param X A dataframe column you want to group by. IE: \code{df$id}
-#' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU.
+#' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU for UNIX flavored OSs, while the only option (currently) on Windows OS is 1.
 #' @keywords parallel hash map dict split
 #' @export
 #' @examples

@@ -10,6 +10,7 @@
 #' @param keepvalues A character vector of the pathway parts/steps you want to use. Only use when the subset flag is \code{TRUE}.
 #' @param ordered A boolean flag to indicate whether or not the path should care about occurence order (when the step occured). Default is \code{TRUE}. If flag is set to \code{FALSE} the pathway vector will be sorted alphabetically.
 #' @param keepconsec A boolean flag to indicate if you want to keep or remove duplicated steps in the pathway. Default is \code{TRUE}.
+#' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU for UNIX flavored OSs, while the only option (currently) on Windows OS is 1.
 #' @keywords path pathway steps
 #' @export
 #' @examples
@@ -28,12 +29,14 @@
 #' asd$path1 <- makepath(
 #'     groupcol = asd$id
 #'   , pathcol  = asd$service
+#'   , n.cores  = 1
 #'   )
 #' asd$path2 <- makepath(
 #'     groupcol   = asd$id
 #'   , pathcol    = asd$service
 #'   , subset     = TRUE
 #'   , keepvalues = c('ps1', 'ps2', 'ps3')
+#'   , n.cores    = 1
 #'   )
 #' asd$path3 <- makepath(
 #'     groupcol   = asd$id
@@ -41,6 +44,7 @@
 #'   , subset     = TRUE
 #'   , keepvalues = c('ps1', 'ps2', 'ps3')
 #'   , ordered    = FALSE
+#'   , n.cores    = 1
 #'   )
 #' asd$path4 <- makepath(
 #'     groupcol   = asd$id
@@ -49,6 +53,7 @@
 #'   , keepvalues = c('ps1', 'ps2', 'ps3')
 #'   , ordered    = FALSE
 #'   , keepconsec = TRUE
+#'   , n.cores    = 1
 #'   )
 #'
 #' asd
@@ -62,6 +67,7 @@ makepath <- function(
   , keepvalues
   , ordered    = TRUE
   , keepconsec = TRUE
+  , n.cores    = detectCores() - 1
   ){
 
   # required packages
@@ -70,7 +76,7 @@ makepath <- function(
   suppressMessages(require(hash))
 
   # group each person's obs together
-  personH <- hashcol(groupcol)
+  personH <- hashcol(groupcol, n.cores)
 
   pathVec <- function(KeyX, subset = subset){
     # get the persons values

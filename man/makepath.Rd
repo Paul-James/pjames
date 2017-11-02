@@ -5,7 +5,7 @@
 \title{Create a pathway variable}
 \usage{
 makepath(groupcol, pathcol, sep = "-", subset = FALSE, keepvalues,
-  ordered = TRUE, keepconsec = TRUE)
+  ordered = TRUE, keepconsec = TRUE, n.cores = detectCores() - 1)
 }
 \arguments{
 \item{groupcol}{The column you want to group by. Generally it's a person or employee.}
@@ -21,6 +21,8 @@ makepath(groupcol, pathcol, sep = "-", subset = FALSE, keepvalues,
 \item{ordered}{A boolean flag to indicate whether or not the path should care about occurence order (when the step occured). Default is \code{TRUE}. If flag is set to \code{FALSE} the pathway vector will be sorted alphabetically.}
 
 \item{keepconsec}{A boolean flag to indicate if you want to keep or remove duplicated steps in the pathway. Default is \code{TRUE}.}
+
+\item{n.cores}{An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU for UNIX flavored OSs, while the only option (currently) on Windows OS is 1.}
 }
 \description{
 Feature Requests:
@@ -45,12 +47,14 @@ asd <- data.frame(
 asd$path1 <- makepath(
     groupcol = asd$id
   , pathcol  = asd$service
+  , n.cores  = 1
   )
 asd$path2 <- makepath(
     groupcol   = asd$id
   , pathcol    = asd$service
   , subset     = TRUE
   , keepvalues = c('ps1', 'ps2', 'ps3')
+  , n.cores    = 1
   )
 asd$path3 <- makepath(
     groupcol   = asd$id
@@ -58,6 +62,7 @@ asd$path3 <- makepath(
   , subset     = TRUE
   , keepvalues = c('ps1', 'ps2', 'ps3')
   , ordered    = FALSE
+  , n.cores    = 1
   )
 asd$path4 <- makepath(
     groupcol   = asd$id
@@ -66,6 +71,7 @@ asd$path4 <- makepath(
   , keepvalues = c('ps1', 'ps2', 'ps3')
   , ordered    = FALSE
   , keepconsec = TRUE
+  , n.cores    = 1
   )
 
 asd

@@ -18,6 +18,6 @@ An easier and more logical way to express "elements of object X not in object Y"
 1:10 \%!in\% 5:15
 which(1:10 \%!in\% 5:15)
 }
-\keyword{in,}
+\keyword{in}
 \keyword{match}
-\keyword{not}
+\keyword{not-in}

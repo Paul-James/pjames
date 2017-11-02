@@ -32,7 +32,7 @@ asd <- data.frame(
     )
   , stringsAsFactors = FALSE
   )
-h <- hashcol(asd$id, n.cores = 4)
+h <- hashcol(asd$id, n.cores = 1)
 h
 
 keys(h)
@@ -42,8 +42,8 @@ h[keys(h)[26]] # key value pair
 h[[keys(h)[26]]] # value accessor method; same as next line
 values(h)[ , 26] # value accessor method; same as previous line
 }
-\keyword{dict,}
-\keyword{hash,}
-\keyword{map,}
-\keyword{parallel,}
+\keyword{dict}
+\keyword{hash}
+\keyword{map}
+\keyword{parallel}
 \keyword{split}

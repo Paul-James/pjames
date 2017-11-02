@@ -2,9 +2,9 @@
 #'
 #' Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE.
 #' @param ... A string, vector of strings, or list of strings in any letter case pattern.
-#' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is "\\s+" (one or more whitespace characters).
+#' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is "s+" (one or more whitespace characters). Uses perl regular expressions.
 #' @param collapseall A logical/boolean flag to indicate whether or not you want a single string as your output (TRUE), or multiple strings (FALSE). Default is FALSE.
-#' @keywords capital, case, camelcase
+#' @keywords capital case camelcase
 #' @export
 #' @examples
 #' tocapital("jonny appleseed")

@@ -9,7 +9,7 @@ tocamel(..., sep = "\\\\W+", collapseall = FALSE)
 \arguments{
 \item{...}{A string, vector of strings, or list of strings in any letter case pattern.}
 
-\item{sep}{A character vector containing characters or regular expression(s) to use for splitting. Default is "\W+" (one or more characters that are not word characters; IE: not a letter or number).}
+\item{sep}{A character vector containing characters or regular expression(s) to use for splitting. Default is "W+" (one or more characters that are not word characters; IE: not a letter or number). Uses perl regular expressions.}
 
 \item{collapseall}{A logical/boolean flag to indicated whether or not you want a single string as your output (TRUE), or multiple strings (FALSE). Default is FALSE.}
 }
@@ -22,6 +22,6 @@ tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
 tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 tocamel("GraNDpa CrIPEs -mcgee!!!!")
 }
-\keyword{camel,}
+\keyword{camel}
 \keyword{camelcase}
-\keyword{case,}
+\keyword{case}

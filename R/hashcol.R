@@ -11,7 +11,7 @@
 #'
 #' @param X A dataframe column you want to group by. IE: df$id
 #' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU.
-#' @keywords parallel, hash, map, dict, split
+#' @keywords parallel hash map dict split
 #' @export
 #' @examples
 #' asd <- data.frame(
@@ -23,7 +23,7 @@
 #'     )
 #'   , stringsAsFactors = FALSE
 #'   )
-#' h <- hashcol(asd$id, n.cores = 4)
+#' h <- hashcol(asd$id, n.cores = 1)
 #' h
 #'
 #' keys(h)

@@ -7,15 +7,8 @@ Authors@R: c(
   person("Paul", "James", email = "paul.james379@gmail.com", role = c("aut", "cre"))
   )
 Maintainer: Paul James <paul.james379@gmail.com>
-Description: A collection of functions put together for use by me.
-    This is meant to help keep .Rprofile and the global environment clear. For example, the rm(list = ls()) command
-    clears out any custom functions defined in the .Rprofile because those functions
-    are part of the global environment. This also saves time and effort pasting/
-    sourcing commonly used functions to the top of every R script you write. All
-    these manual steps can be avoided with the use of a package. However, beware
-    of reproducibility issues. If you need to share your code, either use base R
-    functions or share the function code (IE define the functions in the top of the
-    script).
+Description: A misc. collection of helper functions put together for use by me. 
+  This is meant to help keep .Rprofile and the global environment clear.
 URL: https://github.com/paul-james/pjames
 BugReports: https://github.com/paul-james/pjames/issues
 Depends: R (>= 3.1.2)
@@ -29,6 +22,8 @@ Imports:
 Suggests:
     covr
   , testthat
+  , rmarkdown
+  , knitr
 Encoding: UTF-8
 License: MIT + file LICENSE
 LazyData: true

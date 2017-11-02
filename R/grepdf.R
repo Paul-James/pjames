@@ -12,9 +12,9 @@
 #' @param save_df_name include the input data frame name in the returned results?
 #' @param save_col_name include the matched value column name in the returned results?
 #' @param save_pattern include the pattern searched for in the returned results?
-#' @param tibble return a tibble? set to FALSE for regular data.frame
+#' @param tibble return a tibble? set to \code{FALSE} for regular data.frame
 #' @param ... additional arguments for grep function
-#' @keywords finance, amortization, excel, payment
+#' @keywords finance amortization excel payment
 #' @export
 #' @examples
 #' grepdf(

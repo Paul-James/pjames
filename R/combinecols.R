@@ -2,8 +2,8 @@
 #'
 #' Takes a collection of columns as a list, a dataframe, or equal length vectors and merges them together. This is used when you want to combine 2 or more similar columns after a merge/join/rbind and the values don't overlap (if the values overlap, overlapped values will be lost). The collection can be various data types.
 #' @param ... A vector of columns, a list of columns, or a data.frame that you want to collect into a single column.
-#' @param na.string A character vector of string(s) which are to be interpreted as NA values. Blank observations are also considered to be missing values in logical, integer, numeric, and complex fields.
-#' @param returntype The data type you want the combined column to be. Choose one of, 'character', 'factor', 'integer', 'numeric'.
+#' @param na.string A character vector of string(s) which are to be interpreted as \code{NA} values. Blank observations are also considered to be missing values in logical, integer, numeric, and complex fields.
+#' @param returntype The data type you want the combined column to be. Choose one of, \code{'character', 'factor', 'integer', 'numeric'}.
 #' @keywords combine columns
 #' @export
 #' @examples

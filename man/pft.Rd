@@ -7,7 +7,7 @@
 pft(td = Sys.time())
 }
 \arguments{
-\item{td}{A POSIX date time object. Defaults to Sys.time() if no time is provided.}
+\item{td}{A POSIX date time object. Defaults to \code{Sys.time()} if no time is provided.}
 }
 \description{
 Auto formats a POSIX object to output the day of week, full date, and 24 hour time,
@@ -16,5 +16,5 @@ Auto formats a POSIX object to output the day of week, full date, and 24 hour ti
 pft()
 }
 \keyword{POSIX}
-\keyword{print,}
-\keyword{time,}
+\keyword{print}
+\keyword{time}

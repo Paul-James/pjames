@@ -9,7 +9,7 @@ mylib(..., suppress = TRUE)
 \arguments{
 \item{...}{An itemized listing of R package names to either install and load, or just load.}
 
-\item{suppress}{A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to FALSE to view all messages.}
+\item{suppress}{A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to \code{FALSE} to view all messages.}
 }
 \description{
 Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first.
@@ -20,6 +20,7 @@ mylib(c("RPostgreSQL", "stringr", "dplyr"))
 mylib("data.table")
 }
 }
-\keyword{install,}
-\keyword{library,}
+\keyword{install}
+\keyword{library}
 \keyword{package}
+\keyword{require}

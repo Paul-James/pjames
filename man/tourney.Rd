@@ -16,11 +16,9 @@ Creates the seeding for a tournament bracket randomly given the names of the par
 tourney('Andrew', 'David', 'Keith', 'Paul', 'Jordan', 'Cristian', 'Matthew', 'Blair')
 }
 \keyword{bracket}
-\keyword{jump,}
-\keyword{physics,}
-\keyword{seed,}
-\keyword{seeding,}
-\keyword{soccer}
-\keyword{tournament,}
-\keyword{tourney,}
-\keyword{wrestle}
+\keyword{seed}
+\keyword{seeding}
+\keyword{soccer-physics}
+\keyword{tournament}
+\keyword{tourney}
+\keyword{wrestle-jump}

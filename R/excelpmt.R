@@ -4,9 +4,9 @@
 #' @param rate interest rate
 #' @param nper number of periods
 #' @param pv present value
-#' @param fv future value (default is 0)
-#' @param type matureity of the payment; 0 = end of period, 1 = beginning; (default is 0)
-#' @keywords finance, amortization, excel, payment
+#' @param fv future value (default is \code{0})
+#' @param type maturity of the payment; \code{0} = end of period, \code{1} = beginning; (default is \code{0})
+#' @keywords finance amortization excel payment
 #' @export
 #' @examples
 #' excelpmt(rate = .03, nper = 60, pv = 60000)
@@ -19,7 +19,7 @@ excelpmt <- function(
   , type = 0
   ){
 
-  # USE ENTIRE GIST (link below) AS IT CONTAINS MANY EXCEL FINANCE FUNCTIONS
+  # ENTIRE GIST USEFUL (link below) AS IT CONTAINS MANY EXCEL FINANCE FUNCTIONS
   # https://gist.github.com/econ-r/dcd503815bbb271484ff
   pmt <- ifelse(
       test = rate != 0

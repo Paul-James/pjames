@@ -1,11 +1,11 @@
 #' R Analog to SQL's RIGHT() function
 #'
 #' Vectorized wrapper for taking the right N characters from a character, number, factor, etc. vector. Automatically trims trailing whitespace. I find myself constantly trimming strings and grabbing only the last few characters so this saves some typing.
-#' @param vec A vector of any datatype. Not vectors of lists or matrices. I'm talking about charcter, numeric, logical, factor, etc.
+#' @param vec A vector of any datatype. Not vectors of lists or matrices. I'm talking about \code{charcter, numeric, logical, factor}, etc.
 #' @param n The number of characters you want to keep.
-#' @param trimws Should the leading spaces be removed first? Default is TRUE.
-#' @param sameclass Should the output be the same class as the input? Defaults to FALSE. Generally, you don't want this (expecially for POSIX classes which is impossible to do). Should the return vector be the same class as the input vector? Default is FALSE (returns a character vector no matter the input).
-#' @keywords right, sql, analog
+#' @param trimws Should the leading spaces be removed first? Default is \code{TRUE}.
+#' @param sameclass Should the output be the same class as the input? Defaults to \code{FALSE}. Generally, you don't want this (expecially for POSIX classes which is impossible to do). Should the return vector be the same class as the input vector? Default is \code{FALSE} (returns a character vector no matter the input).
+#' @keywords right sql analog
 #' @export
 #' @examples
 #' right(vec = 'SomethingLong', n = 4)

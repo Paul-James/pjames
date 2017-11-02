@@ -7,11 +7,11 @@
 fibonacci(seq_length = 10, first_num = 0, second_num = 1)
 }
 \arguments{
-\item{seq_length}{The length of the sequence as a number. The sequence length has to be greater than or equal to 2 (seq_length >= 2). The default is 10.}
+\item{seq_length}{The length of the sequence as a number. The sequence length has to be greater than or equal to 2 (\code{seq_length >= 2}). The default is \code{10}.}
 
-\item{first_num}{The starting point of the sequence. Use any positive number that comes before second_num (first_num < second_num). The default is 0.}
+\item{first_num}{The starting point of the sequence. Use any positive number that comes before second_num (\code{first_num < second_num}). The default is \code{0}.}
 
-\item{second_num}{The next number in the sequence after first_num. Use any positive number that comes after first_num (second_num > first_num). The default is 1.}
+\item{second_num}{The next number in the sequence after first_num. Use any positive number that comes after first_num (\code{second_num > first_num}). The default is \code{1}.}
 }
 \description{
 Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
@@ -28,8 +28,8 @@ fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 fibonacci(30)
 fibonacci()
 }
-\keyword{fibonacci,}
-\keyword{math,}
+\keyword{fibonacci}
+\keyword{math}
 \keyword{nature}
-\keyword{science,}
-\keyword{sequence,}
+\keyword{science}
+\keyword{sequence}

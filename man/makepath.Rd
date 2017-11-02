@@ -12,15 +12,15 @@ makepath(groupcol, pathcol, sep = "-", subset = FALSE, keepvalues,
 
 \item{pathcol}{The column you want to create a path from. IE: service_type, location, step}
 
-\item{sep}{The seperator that goes between the parts of the pathway. The default is "-".}
+\item{sep}{The seperator that goes between the parts of the pathway. The default is hyphen (\code{-}).}
 
-\item{subset}{A boolean flag to indicate if you want to use every possible part/step in the pathway or if you just want to track certain steps. Default is FALSE (use all values). Must use the keepvalues parameter if the subset flag is TRUE (use certain values).}
+\item{subset}{A boolean flag to indicate if you want to use every possible part/step in the pathway or if you just want to track certain steps. Default is \code{FALSE} (use all values). Must use the keepvalues parameter if the subset flag is \code{TRUE} (use certain values).}
 
-\item{keepvalues}{A character vector of the pathway parts/steps you want to use. Only use when the subset flag is TRUE.}
+\item{keepvalues}{A character vector of the pathway parts/steps you want to use. Only use when the subset flag is \code{TRUE}.}
 
-\item{ordered}{A boolean flag to indicate whether or not the path should care about occurence order (when the step occured). Default is TRUE. If flag is set to FALSE the pathway vector will be sorted alphabetically.}
+\item{ordered}{A boolean flag to indicate whether or not the path should care about occurence order (when the step occured). Default is \code{TRUE}. If flag is set to \code{FALSE} the pathway vector will be sorted alphabetically.}
 
-\item{keepconsec}{A boolean flag to indicate if you want to keep or remove duplicated steps in the pathway. Default is TRUE.}
+\item{keepconsec}{A boolean flag to indicate if you want to keep or remove duplicated steps in the pathway. Default is \code{TRUE}.}
 }
 \description{
 Feature Requests:
@@ -68,6 +68,6 @@ asd$path4 <- makepath(
 
 asd
 }
-\keyword{path,}
-\keyword{pathway,}
+\keyword{path}
+\keyword{pathway}
 \keyword{steps}

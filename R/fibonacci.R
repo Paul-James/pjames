@@ -1,10 +1,10 @@
 #' Calculate a fibonacci sequence
 #'
 #' Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
-#' @param seq_length The length of the sequence as a number. The sequence length has to be greater than or equal to 2 (seq_length >= 2). The default is 10.
-#' @param first_num The starting point of the sequence. Use any positive number that comes before second_num (first_num < second_num). The default is 0.
-#' @param second_num The next number in the sequence after first_num. Use any positive number that comes after first_num (second_num > first_num). The default is 1.
-#' @keywords fibonacci, sequence, math, science, nature
+#' @param seq_length The length of the sequence as a number. The sequence length has to be greater than or equal to 2 (\code{seq_length >= 2}). The default is \code{10}.
+#' @param first_num The starting point of the sequence. Use any positive number that comes before second_num (\code{first_num < second_num}). The default is \code{0}.
+#' @param second_num The next number in the sequence after first_num. Use any positive number that comes after first_num (\code{second_num > first_num}). The default is \code{1}.
+#' @keywords fibonacci sequence math science nature
 #' @export
 #' @examples \dontrun{
 #' fibonacci('eight', 2, -1)  # wrong #1

@@ -10,18 +10,18 @@ casetrim(df, case = c("upper", "lower"), colclasses = c("asis",
 \arguments{
 \item{df}{a dataframe or list of dataframes with columns of any character type}
 
-\item{case}{the letter case you want the output to be: upper or lower}
+\item{case}{the letter case you want the output to be: \code{upper} or \code{lower}}
 
-\item{colclasses}{do you want to return every column to it's original data type (asis) or simply return all cols as characters (character)?}
+\item{colclasses}{do you want to return every column to it's original data type (\code{asis}) or simply return all cols as characters (\code{character})?}
 }
 \description{
-Removes leading and trailing whitespace from every column in a dataframe or list of dataframes. At the same time it standardizes the case of the characters to either upper or lower case. THis function works best with raw character data before converting data types and other data munging/feature engineering. Does handle a dataframe as it is, however, and returns every column in it's original data type as a dataframe.
+Removes leading and trailing whitespace from every column in a dataframe or list of dataframes. At the same time it standardizes the case of the characters to either upper or lower case. This function works best with raw character data before converting data types and other data munging/feature engineering. Does handle a dataframe as it is, however, and returns every column in it's original data type as a dataframe.
 }
 \examples{
 ## Need examples...too lazy to make of find a dirty dataset to clean.
 }
-\keyword{case,}
-\keyword{clean,}
-\keyword{munge,}
+\keyword{case}
+\keyword{clean}
+\keyword{munge}
 \keyword{scrub}
-\keyword{trim,}
+\keyword{trim}

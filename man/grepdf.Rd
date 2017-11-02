@@ -20,7 +20,7 @@ grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
 
 \item{save_pattern}{include the pattern searched for in the returned results?}
 
-\item{tibble}{return a tibble? set to FALSE for regular data.frame}
+\item{tibble}{return a tibble? set to \code{FALSE} for regular data.frame}
 
 \item{...}{additional arguments for grep function}
 }
@@ -38,7 +38,7 @@ grepdf(
   , tibble   = FALSE
 )
 }
-\keyword{amortization,}
-\keyword{excel,}
-\keyword{finance,}
+\keyword{amortization}
+\keyword{excel}
+\keyword{finance}
 \keyword{payment}

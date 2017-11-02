@@ -10,9 +10,9 @@ combinecols(..., na.string = NA, returntype = c("character", "factor",
 \arguments{
 \item{...}{A vector of columns, a list of columns, or a data.frame that you want to collect into a single column.}
 
-\item{na.string}{A character vector of string(s) which are to be interpreted as NA values. Blank observations are also considered to be missing values in logical, integer, numeric, and complex fields.}
+\item{na.string}{A character vector of string(s) which are to be interpreted as \code{NA} values. Blank observations are also considered to be missing values in logical, integer, numeric, and complex fields.}
 
-\item{returntype}{The data type you want the combined column to be. Choose one of, 'character', 'factor', 'integer', 'numeric'.}
+\item{returntype}{The data type you want the combined column to be. Choose one of, \code{'character', 'factor', 'integer', 'numeric'}.}
 }
 \description{
 Takes a collection of columns as a list, a dataframe, or equal length vectors and merges them together. This is used when you want to combine 2 or more similar columns after a merge/join/rbind and the values don't overlap (if the values overlap, overlapped values will be lost). The collection can be various data types.

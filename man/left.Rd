@@ -11,9 +11,9 @@ left(vec, n, trimws = TRUE, sameclass = FALSE)
 
 \item{n}{The number of characters you want to keep.}
 
-\item{trimws}{Should the leading spaces be removed first? Default is TRUE.}
+\item{trimws}{Should the leading spaces be removed first? Default is \code{TRUE}.}
 
-\item{sameclass}{Should the output be the same class as the input? Defaults to FALSE. Generally, you don't want this (expecially for POSIX classes which is impossible to do). Should the return vector be the same class as the input vector? Default is FALSE (returns a character vector no matter the input).}
+\item{sameclass}{Should the output be the same class as the input? Defaults to \code{FALSE}. Generally, you don't want this (expecially for POSIX classes which is impossible to do). Should the return vector be the same class as the input vector? Default is \code{FALSE} (returns a character vector no matter the input).}
 }
 \description{
 Vectorized wrapper for taking the left N characters from a character, number, factor, etc. vector. Automatically trims leading whitespace. I find myself constantly trimming strings and grabbing only the first few characters so this saves some typing.
@@ -25,5 +25,6 @@ left(vec = '  AnotherThing', n = 4, trimws = FALSE)
 left(vec = 400, 1, sameclass = TRUE)
 }
 \keyword{analog}
-\keyword{left,}
-\keyword{sql,}
+\keyword{left}
+\keyword{sql}
+\keyword{trimws}

@@ -13,9 +13,9 @@ excelpmt(rate, nper, pv, fv = 0, type = 0)
 
 \item{pv}{present value}
 
-\item{fv}{future value (default is 0)}
+\item{fv}{future value (default is \code{0})}
 
-\item{type}{matureity of the payment; 0 = end of period, 1 = beginning; (default is 0)}
+\item{type}{maturity of the payment; \code{0} = end of period, \code{1} = beginning; (default is \code{0})}
 }
 \description{
 https://gist.github.com/econ-r/dcd503815bbb271484ff
@@ -23,7 +23,7 @@ https://gist.github.com/econ-r/dcd503815bbb271484ff
 \examples{
 excelpmt(rate = .03, nper = 60, pv = 60000)
 }
-\keyword{amortization,}
-\keyword{excel,}
-\keyword{finance,}
+\keyword{amortization}
+\keyword{excel}
+\keyword{finance}
 \keyword{payment}

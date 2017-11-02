@@ -2,8 +2,8 @@
 #'
 #' Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first.
 #' @param ... An itemized listing of R package names to either install and load, or just load.
-#' @param suppress A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to FALSE to view all messages.
-#' @keywords library, install, package
+#' @param suppress A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to \code{FALSE} to view all messages.
+#' @keywords library install package require
 #' @export
 #' @examples \dontrun{
 #' mylib(c("RPostgreSQL", "stringr", "dplyr"))

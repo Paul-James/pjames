@@ -7,7 +7,7 @@
 pp(...)
 }
 \arguments{
-\item{...}{A collection of arguments for paste.}
+\item{...}{A collection of arguments for \code{paste()}.}
 }
 \description{
 Takes a vector of objects and puts them together in a vector of strings. It's useful to track progress of for loops and to automate output.
@@ -17,4 +17,4 @@ pp(letters[1:10], 11:20)
 for(i in 1:5){pp("This is the capital letter ", toupper(letters[i]), ".", sep = "")}
 }
 \keyword{paste}
-\keyword{print,}
+\keyword{print}

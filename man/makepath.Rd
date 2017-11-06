@@ -75,6 +75,7 @@ asd$path4 <- makepath(
   )
 
 asd
+
 }
 \keyword{path}
 \keyword{pathway}

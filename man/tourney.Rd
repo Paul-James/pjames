@@ -14,6 +14,7 @@ Creates the seeding for a tournament bracket randomly given the names of the par
 }
 \examples{
 tourney('Andrew', 'David', 'Keith', 'Paul', 'Jordan', 'Cristian', 'Matthew', 'Blair')
+
 }
 \keyword{bracket}
 \keyword{seed}

@@ -15,6 +15,10 @@ Takes a vector of objects and puts them together in a vector of strings. It's us
 \examples{
 pp(letters[1:10], 11:20)
 for(i in 1:5){pp("This is the capital letter ", toupper(letters[i]), ".", sep = "")}
+
+}
+\seealso{
+\code{\link{pft}}, \code{\link{print}}, \code{\link{paste}}
 }
 \keyword{paste}
 \keyword{print}

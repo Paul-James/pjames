@@ -1,16 +1,22 @@
 #' Convert string to camelcase (ie PaulJames)
 #'
-#' Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE.
+#' Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
+#'
 #' @param ... A string, vector of strings, or list of strings in any letter case pattern.
 #' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is \code{\\\\W+} (one or more characters that are not word characters; IE: not a letter or number).
 #' @param collapseall A logical/boolean flag to indicated whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.
+#'
+#' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocapital}}
 #' @keywords camel case camelcase
-#' @export
+#'
 #' @examples
 #' tocamel("jonny appleseed")
 #' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
 #' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 #' tocamel("GraNDpa CrIPEs -mcgee!!!!")
+#'
+#' @rdname tocamel
+#' @export
 
 tocamel <- function(
     ...

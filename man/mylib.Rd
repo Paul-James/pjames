@@ -12,13 +12,17 @@ mylib(..., suppress = TRUE)
 \item{suppress}{A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to \code{FALSE} to view all messages.}
 }
 \description{
-Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first.
+Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first. Currently only works if package is available on CRAN.
 }
 \examples{
 \dontrun{
 mylib(c("RPostgreSQL", "stringr", "dplyr"))
 mylib("data.table")
 }
+
+}
+\seealso{
+\code{\link{library}}, \code{\link{require}}, \code{\link{install.packages}}
 }
 \keyword{install}
 \keyword{library}

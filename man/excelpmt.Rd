@@ -2,7 +2,7 @@
 % Please edit documentation in R/excelpmt.R
 \name{excelpmt}
 \alias{excelpmt}
-\title{R analog/ rewrite to Excel's PMT function}
+\title{R analog port of Excel's PMT function}
 \usage{
 excelpmt(rate, nper, pv, fv = 0, type = 0)
 }
@@ -18,10 +18,11 @@ excelpmt(rate, nper, pv, fv = 0, type = 0)
 \item{type}{maturity of the payment; \code{0} = end of period, \code{1} = beginning; (default is \code{0})}
 }
 \description{
-https://gist.github.com/econ-r/dcd503815bbb271484ff
+Originally found as a GIST: https://gist.github.com/raadk/dcd503815bbb271484ff
 }
 \examples{
 excelpmt(rate = .03, nper = 60, pv = 60000)
+
 }
 \keyword{amortization}
 \keyword{excel}

@@ -23,6 +23,10 @@ left(vec = 'SomethingLong', n = 4)
 left(vec = 40000.00, n = 2)
 left(vec = '  AnotherThing', n = 4, trimws = FALSE)
 left(vec = 400, 1, sameclass = TRUE)
+
+}
+\seealso{
+\code{\link{right}}
 }
 \keyword{analog}
 \keyword{left}

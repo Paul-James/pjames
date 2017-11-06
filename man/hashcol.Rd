@@ -15,9 +15,9 @@ hashcol(X, n.cores = detectCores() - 1)
 Takes a dataframe column you want to group by and returns a hash table. The keys are the unique values of the group by column and the values are the row numbers where each key is found. This is parallelized across all available cores on your CPU and is a direct and much faster replacement of split(df, df$group_by).
 }
 \details{
-Check the OS and chooses the correct package to use for mclapply. \code{parallelsugar} can be used for Windows (...but it's currently now) while \code{parallel} is used for everything else.
+Check the OS and chooses the correct package to use for mclapply. The pkg \code{parallelsugar} can be used for Windows (...but it's currently not) while \code{parallel} is used for everything else.
 
-WARNING FOR WINDOWS USERS: not useful. only runs lapply.
+WARNING FOR WINDOWS USERS: not paralellized; only runs \code{lapply} instead of \code{mclapply}.
 }
 \examples{
 asd <- data.frame(
@@ -38,6 +38,10 @@ values(h)
 h[keys(h)[26]] # key value pair
 h[[keys(h)[26]]] # value accessor method; same as next line
 values(h)[ , 26] # value accessor method; same as previous line
+
+}
+\seealso{
+\code{\link{parallel}}, \code{\link{mclapply}}, \code{\link{hash}}
 }
 \keyword{dict}
 \keyword{hash}

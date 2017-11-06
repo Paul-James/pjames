@@ -53,6 +53,7 @@ asd$newCol2 <- combinecols(
   , returntype = 'factor'
   )
 asd
+
 }
 \keyword{columns}
 \keyword{combine}

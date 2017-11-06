@@ -14,13 +14,17 @@ tocamel(..., sep = "\\\\W+", collapseall = FALSE)
 \item{collapseall}{A logical/boolean flag to indicated whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.}
 }
 \description{
-Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE.
+Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
 }
 \examples{
 tocamel("jonny appleseed")
 tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
 tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
 tocamel("GraNDpa CrIPEs -mcgee!!!!")
+
+}
+\seealso{
+\code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocapital}}
 }
 \keyword{camel}
 \keyword{camelcase}

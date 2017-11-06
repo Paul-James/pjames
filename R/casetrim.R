@@ -1,13 +1,19 @@
 #' Standardize letter case and trim whitespace for dataframes
 #'
 #' Removes leading and trailing whitespace from every column in a dataframe or list of dataframes. At the same time it standardizes the case of the characters to either upper or lower case. This function works best with raw character data before converting data types and other data munging/feature engineering. Does handle a dataframe as it is, however, and returns every column in it's original data type as a dataframe.
+#'
 #' @param df a dataframe or list of dataframes with columns of any character type
 #' @param case the letter case you want the output to be: \code{upper} or \code{lower}
 #' @param colclasses do you want to return every column to it's original data type (\code{asis}) or simply return all cols as characters (\code{character})?
+#'
+#' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{trimws}}
 #' @keywords case trim munge clean scrub
-#' @export
+#'
 #' @examples
-#' ## Need examples...too lazy to make of find a dirty dataset to clean.
+#' ## Need examples...too lazy to make or find a dirty dataset to clean.
+#'
+#' @rdname casetrim
+#' @export
 
 casetrim <- function(
     df

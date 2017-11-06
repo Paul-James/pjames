@@ -3,6 +3,7 @@
 #' Feature Requests:
 #' 1) a time variable and business rules based on date times;
 #' 2) step grouping (IE: step1, step2, step3 = phase1; step4, step5 = phase2; etc.). Takes a dataframe column you want to group by, and a column you want to make a pathway out of and returns a pathway vector the size of your original data. Used when you want to know unique combinations of steps in order to count or group by. A medical pathway or business process steps are good use cases.
+#'
 #' @param groupcol The column you want to group by. Generally it's a person or employee.
 #' @param pathcol The column you want to create a path from. IE: service_type, location, step
 #' @param sep The seperator that goes between the parts of the pathway. The default is hyphen (\code{-}).
@@ -11,8 +12,9 @@
 #' @param ordered A boolean flag to indicate whether or not the path should care about occurence order (when the step occured). Default is \code{TRUE}. If flag is set to \code{FALSE} the pathway vector will be sorted alphabetically.
 #' @param keepconsec A boolean flag to indicate if you want to keep or remove duplicated steps in the pathway. Default is \code{TRUE}.
 #' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU for UNIX flavored OSs, while the only option (currently) on Windows OS is 1.
+#'
 #' @keywords path pathway steps
-#' @export
+#'
 #' @examples
 #' asd <- data.frame(
 #'     id               = rep(letters, times = 4)
@@ -57,8 +59,11 @@
 #'   )
 #'
 #' asd
+#'
+#' @rdname makepath
+#' @export
 
-## A FUNCTION THAT MAKES A PATHWAY VARIABLE ----
+
 makepath <- function(
     groupcol
   , pathcol

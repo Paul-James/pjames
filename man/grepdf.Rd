@@ -28,7 +28,7 @@ grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
 Grep a data frame and return info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
 Not optimized and is currently slow on big datasets or many matches. Further work needs to be done to make this faster/efficient.
 One of the use case would be to find and replace a pattern wherever it is in the data.
-Another use case not yet built in is identify data missingness.
+Another use case not yet built in is to identify data missingness.
 }
 \examples{
 grepdf(
@@ -37,8 +37,12 @@ grepdf(
   , unique   = FALSE
   , tibble   = FALSE
 )
+
 }
-\keyword{amortization}
-\keyword{excel}
-\keyword{finance}
-\keyword{payment}
+\seealso{
+\code{\link{grep}}
+}
+\keyword{data.frame}
+\keyword{grep}
+\keyword{regex}
+\keyword{tibble}

@@ -27,6 +27,7 @@ fibonacci(8, 10, 12)  # correct!
 fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 fibonacci(30)
 fibonacci()
+
 }
 \keyword{fibonacci}
 \keyword{math}

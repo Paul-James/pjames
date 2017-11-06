@@ -14,6 +14,10 @@ Auto formats a POSIX object to output the day of week, full date, and 24 hour ti
 }
 \examples{
 pft()
+
+}
+\seealso{
+\code{\link{POSIXct}}, \code{\link{print}} \code{\link{pp}}
 }
 \keyword{POSIX}
 \keyword{print}

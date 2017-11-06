@@ -1,10 +1,9 @@
 #' Grep a data frame: many synergy, much useful, wow
 #'
-#'
 #' Grep a data frame and return info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
 #' Not optimized and is currently slow on big datasets or many matches. Further work needs to be done to make this faster/efficient.
 #' One of the use case would be to find and replace a pattern wherever it is in the data.
-#' Another use case not yet built in is identify data missingness.
+#' Another use case not yet built in is to identify data missingness.
 #'
 #' @param df_input data frame to search
 #' @param pattern the literal or regex pattern  to search on (default is regex)
@@ -14,8 +13,10 @@
 #' @param save_pattern include the pattern searched for in the returned results?
 #' @param tibble return a tibble? set to \code{FALSE} for regular data.frame
 #' @param ... additional arguments for grep function
-#' @keywords finance amortization excel payment
-#' @export
+#'
+#' @seealso \code{\link{grep}}
+#' @keywords grep tibble data.frame regex
+#'
 #' @examples
 #' grepdf(
 #'     df_input = iris
@@ -23,6 +24,9 @@
 #'   , unique   = FALSE
 #'   , tibble   = FALSE
 #' )
+#'
+#' @rdname grepdf
+#' @export
 
 grepdf <- function(
   df_input
@@ -83,7 +87,7 @@ grepdf <- function(
   ## stop here if there are no matches
   if(nrow(df_output) == 0){
     stop(cat(sprintf(
-        "--| Sorry m8, no matches for pattern, '%s'. | ¯\\_(\u30c4)_/¯ |--\n\n"
+        "--| Sorry m8, no matches for pattern, '%s'. |--\n\n"
       , pattern
     )))
   }

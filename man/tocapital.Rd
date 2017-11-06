@@ -14,7 +14,7 @@ tocapital(..., sep = "\\\\s+", collapseall = FALSE)
 \item{collapseall}{A logical/boolean flag to indicate whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.}
 }
 \description{
-Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE.
+Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
 }
 \examples{
 tocapital("jonny appleseed")
@@ -31,6 +31,10 @@ tocapital(
 )
 
 tocapital("GraNDpa CrIPEs -mcgee")
+
+}
+\seealso{
+\code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocamel}}
 }
 \keyword{camelcase}
 \keyword{capital}

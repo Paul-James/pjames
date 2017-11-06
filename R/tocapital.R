@@ -1,11 +1,14 @@
 #' Convert names to capitalcase (ie Paul James)
 #'
-#' Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE.
+#' Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
+#'
 #' @param ... A string, vector of strings, or list of strings in any letter case pattern.
 #' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is \code{\\\\s+} (one or more whitespace characters).
 #' @param collapseall A logical/boolean flag to indicate whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.
+#'
+#' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocamel}}
 #' @keywords capital case camelcase
-#' @export
+#'
 #' @examples
 #' tocapital("jonny appleseed")
 #'
@@ -21,6 +24,9 @@
 #' )
 #'
 #' tocapital("GraNDpa CrIPEs -mcgee")
+#'
+#' @rdname tocapital
+#' @export
 
 tocapital <- function(
     ...

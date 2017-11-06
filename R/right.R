@@ -5,13 +5,18 @@
 #' @param n The number of characters you want to keep.
 #' @param trimws Should the leading spaces be removed first? Default is \code{TRUE}.
 #' @param sameclass Should the output be the same class as the input? Defaults to \code{FALSE}. Generally, you don't want this (expecially for POSIX classes which is impossible to do). Should the return vector be the same class as the input vector? Default is \code{FALSE} (returns a character vector no matter the input).
+#'
+#' @seealso \code{\link{left}}
 #' @keywords right sql analog
-#' @export
+#'
 #' @examples
 #' right(vec = 'SomethingLong', n = 4)
 #' right(vec = 425575.4, n = 5)
 #' right(vec = 'AnotherThing  ', n = 7, trimws = FALSE)
 #' right(vec = 401.98, 4, sameclass = TRUE)
+#'
+#' @rdname right
+#' @export
 
 right <- function(
     vec

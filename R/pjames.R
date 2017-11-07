@@ -13,9 +13,7 @@
 #' @importFrom dplyr    bind_rows left_join
 #' @importFrom tibble   as_tibble
 #' @importFrom parallel detectCores mclapply
-#' @importFrom hash     hash
-#' @importFrom hash     keys
-#' @importFrom hash     values
+#' @importFrom hash     hash keys values
 #' @importFrom utils    install.packages
 
 "_PACKAGE"

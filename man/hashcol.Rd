@@ -32,12 +32,12 @@ asd <- data.frame(
 h <- hashcol(asd$id, n.cores = 1)
 h
 
-keys(h)
-values(h)
+hash::keys(h)
+hash::values(h)
 
-h[keys(h)[26]] # key value pair
-h[[keys(h)[26]]] # value accessor method; same as next line
-values(h)[ , 26] # value accessor method; same as previous line
+h[hash::keys(h)[26]] # key value pair
+h[[hash::keys(h)[26]]] # value accessor method; same as next line
+hash::values(h)[ , 26] # value accessor method; same as previous line
 
 }
 \seealso{

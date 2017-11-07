@@ -37,18 +37,12 @@
 
 hashcol <- function(X, n.cores = detectCores() - 1){
 
-  # mclapply()
-  suppressMessages(library(parallel))
-
   ## TODO: TEST WINDOWS PARALLEL
   # ifelse(
   #     test = tolower(Sys.info()['sysname']) == 'windows'
   #   , yes  = suppressMessages(library(parallelsugar))
   #   , no   = suppressMessages(library(parallel))
   # )
-
-  # hash()
-  suppressMessages(library(hash))
 
   ##
   keys <- unique(X)

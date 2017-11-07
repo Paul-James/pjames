@@ -29,7 +29,7 @@
 #' @export
 
 grepdf <- function(
-  df_input
+    df_input
   , pattern
   , unique        = TRUE
   , save_df_name  = FALSE
@@ -82,7 +82,7 @@ grepdf <- function(
   }
 
   ## combine the list into a single dataframe and return it if there are matches
-  df_output <- dplyr::bind_rows(df_output)
+  df_output <- bind_rows(df_output)
 
   ## stop here if there are no matches
   if(nrow(df_output) == 0){
@@ -114,9 +114,9 @@ grepdf <- function(
   if(tibble){
 
     if(unique){
-      as_data_frame(df_output[!duplicated(df_output$row_num), ])
+      as_tibble(df_output[!duplicated(df_output$row_num), ])
     } else {
-      as_data_frame(df_output)
+      as_tibble(df_output)
     }
   } else {
 

@@ -10,15 +10,32 @@ casetrim(df, case = c("upper", "lower"), colclasses = c("asis",
 \arguments{
 \item{df}{a dataframe or list of dataframes with columns of any character type}
 
-\item{case}{the letter case you want the output to be: \code{upper} or \code{lower}}
+\item{case}{the letter case you want the output to be: \code{upper} or \code{lower}. Default is \code{upper}.}
 
-\item{colclasses}{do you want to return every column to it's original data type (\code{asis}) or simply return all cols as characters (\code{character})?}
+\item{colclasses}{do you want to return every column to it's original data type (\code{asis}) or simply return all cols as characters (\code{character})? Default is \code{asis}.}
 }
 \description{
 Removes leading and trailing whitespace from every column in a dataframe or list of dataframes. At the same time it standardizes the case of the characters to either upper or lower case. This function works best with raw character data before converting data types and other data munging/feature engineering. Does handle a dataframe as it is, however, and returns every column in it's original data type as a dataframe.
 }
 \examples{
-## Need examples...too lazy to make or find a dirty dataset to clean.
+df <- data.frame(
+    performingPhysio = c("JILL jones      ", "    jack BLACK", "", " RegiNald ChesterField ")
+  , operatingPhysio  = c("Who Dat      ", "chuck FLEMMING      ", NA, "          shankman, razor shankman")
+  , consent          = rep(FALSE, times = 4)
+  , duration_hrs     = 5:8
+  , stringsAsFactors = FALSE
+  )
+
+casetrim(df)
+casetrim(
+    df
+  , case = 'lower'
+)
+casetrim(
+    df
+  , case       = 'lower'
+  , colclasses = 'character'
+)
 
 }
 \seealso{

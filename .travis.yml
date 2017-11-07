@@ -13,7 +13,6 @@ after_success:
 
 os:
   - linux
-  - osx
 
 r:
   - oldrel

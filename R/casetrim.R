@@ -9,6 +9,9 @@
 #' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{trimws}}
 #' @keywords case trim munge clean scrub
 #'
+#' @importFrom magrittr "%>%"
+#' @importFrom magrittr "%<>%"
+#'
 #' @examples
 #' df <- data.frame(
 #'     performingPhysio = c("JILL jones      ", "    jack BLACK", "", " RegiNald ChesterField ")

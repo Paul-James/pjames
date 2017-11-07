@@ -4,6 +4,7 @@
 \name{pjames}
 \alias{pjames}
 \alias{pjames-package}
+\alias{pjames-package}
 \title{\code{pjames} package}
 \description{
 Paul's Personal Pacakge Panacea
@@ -11,4 +12,16 @@ Paul's Personal Pacakge Panacea
 \details{
 See the README on:
 \href{https://github.com/Paul-James/pjames#readme}{GitHub}
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/paul-james/pjames}
+  \item Report bugs at \url{https://github.com/paul-james/pjames/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Paul James \email{paul.james379@gmail.com}
+
 }

@@ -37,13 +37,6 @@
 
 hashcol <- function(X, n.cores = detectCores() - 1){
 
-  ## TODO: TEST WINDOWS PARALLEL
-  # ifelse(
-  #     test = tolower(Sys.info()['sysname']) == 'windows'
-  #   , yes  = suppressMessages(library(parallelsugar))
-  #   , no   = suppressMessages(library(parallel))
-  # )
-
   ##
   keys <- unique(X)
 

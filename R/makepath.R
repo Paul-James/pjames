@@ -75,11 +75,6 @@ makepath <- function(
   , n.cores    = detectCores() - 1
   ){
 
-  # required packages
-  suppressMessages(library(dplyr))
-  suppressMessages(library(parallel))
-  suppressMessages(library(hash))
-
   # group each person's obs together
   personH <- hashcol(groupcol, n.cores)
 

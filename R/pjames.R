@@ -9,19 +9,14 @@
 #'
 #' @name pjames
 #'
-#' @importFrom magrittr "%>%"
-#' @importFrom magrittr "%<>%"
-#' @importFrom dplyr    "bind_rows"
-#' @importFrom dplyr    "left_join"
-#' @importFrom tibble   "as_tibble"
-#' @importFrom parallel "detectCores"
-#' @importFrom parallel "mclapply"
-#' @importFrom hash     "hash"
-#' @importFrom hash     "keys"
-#' @importFrom hash     "values"
-#' @importFrom utils    "install.packages"
+#' @importFrom magrittr %>% %<>%
+#' @importFrom dplyr    bind_rows left_join
+#' @importFrom tibble   as_tibble
+#' @importFrom parallel detectCores mclapply
+#' @importFrom hash     hash keys values
+#' @importFrom utils    install.packages
 
-NULL
+"_PACKAGE"
 
 ## quiets concerns of R CMD check re: the .'s that appear in pipelines
 ## https://github.com/STAT545-UBC/Discussion/issues/451

@@ -3,6 +3,7 @@
 export("%nin%")
 export(casetrim)
 export(combinecols)
+export(evalparse)
 export(excelpmt)
 export(fibonacci)
 export(grepdf)

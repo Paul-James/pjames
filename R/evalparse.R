@@ -32,4 +32,4 @@
 #' @rdname evalparse
 #' @export
 
-evalparse <- function(x) eval(parse(text = x))
+evalparse <- function(x) eval(parse(text = x), envir = parent.frame())

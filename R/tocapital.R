@@ -1,10 +1,10 @@
 #' Convert names to capitalcase (ie Paul James)
 #'
-#' Takes a string, vector(s) of strings, or list of strings and converts the case to capitalcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
+#' Takes a character vector, or list of strings (list object of character vectors) and converts the case to capital case (AKA, title case). Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
 #'
-#' @param ... A string, vector of strings, or list of strings in any letter case pattern.
-#' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is \code{\\\\s+} (one or more whitespace characters).
-#' @param collapseall A logical/boolean flag to indicate whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.
+#' @param x A character vector, or list object of character vectors.
+#' @param fix_mc A logical/boolean flag to indicate if \code{Mc*} names (like McDowell) should be double capitalized. Default is \code{FALSE}.
+#' @param collapseall A logical/boolean flag to indicate whether or not you want a single character vector as your output. Default is \code{FALSE}.
 #'
 #' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocamel}}
 #' @keywords capital case camelcase
@@ -12,73 +12,76 @@
 #' @examples
 #' tocapital("jonny appleseed")
 #'
+#' # using a list object
 #' tocapital(
+#'   list(
 #'     c("THE", "DARK", "KNIGHT")
 #'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   )
 #' )
 #'
+#' # using a list object and collapseall
 #' tocapital(
+#'   list(
 #'     c("THE", "DARK", "KNIGHT")
 #'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   )
 #'   , collapseall = TRUE
 #' )
 #'
-#' tocapital("GraNDpa CrIPEs -mcgee")
+#' # examples of not fixing Mc* names (the default) vs fixing them
+#' tocapital(c("jonny appleseed", "GraNDpa CrIPEs-mcgee"))
+#' tocapital(
+#'     c("jonny appleseed", "GraNDpa CrIPEs-mcgee")
+#'   , fix_mc = TRUE
+#' )
 #'
 #' @rdname tocapital
 #' @export
 
-tocapital <- function(
-    ...
-  , sep         = '\\s+'
-  , collapseall = FALSE
-  ){
+tocapital <- function(x, fix_mc = FALSE, collapseall = FALSE){
 
-  strList <- list(...)
+  capital <- function(x, fmc = fix_mc){
 
-  # test to see if original input was already a list
-  if(class(strList[[1]]) == 'list'){
-    strList <- strList[[1]]
-  }
-  strList <- lapply(strList, as.list)
+    if(fmc){
 
-  capital <- function(string){
-    # clean up hyphens a bit just in case they're messy
-    string <- gsub("- | - | -", "-", string)
-
-    strVec <- unlist(strsplit(string, split = sep))
-
-    doubleCap <- grepl('(^|-|_|/|\\.)mc', strVec, ignore.case = TRUE)
-
-    up <- toupper(substring(strVec, 1, 1))
-    low <- tolower(substring(strVec, 2))
-
-    # make sure hyphenated and "Mc" words get capitalized right
-    low <- gsub(
-        "(-)(.)"
-      , "\\1\\U\\2"
-      , low
-      , perl        = TRUE
-      , ignore.case = TRUE
-      )
-    low[doubleCap] <- gsub(
-        "(^c|mc)(.)"
-      , "\\1\\U\\2"
-      , low[doubleCap]
-      , perl        = TRUE
-      , ignore.case = TRUE
+      gsub( # correct for some double capitalized words
+          "(?<=\\b)(Mc)([a-z])"
+        , "\\1\\U\\2"
+        , gsub( # capital case words
+            "(?<=\\b)([a-z])"
+          , "\\U\\1"
+          , tolower(x)
+          , perl = TRUE
+          )
+        , perl = TRUE
       )
 
-    paste(up, low, sep = '', collapse = ' ')
-  }
-
-  if(collapseall == FALSE){
-    if(length(strList) > 1){
-      return(lapply(strList, function(x) sapply(x, capital)))
     } else {
-      return(unlist(lapply(strList, function(x) sapply(x, capital))))
+
+      gsub( # capital case words
+          "(?<=\\b)([a-z])"
+        , "\\U\\1"
+        , tolower(x)
+        , perl = TRUE
+      )
+
     }
-  } else {
-    return(paste0(sapply(strList, function(x) capital(unlist(x))), collapse = ' '))
+
   }
+
+  if(is.list(x) & !collapseall){
+
+    sapply(x, capital)
+
+  } else if(is.list(x) && collapseall){
+
+    paste0(unlist(sapply(x, capital)), collapse = ' ')
+
+  } else {
+
+    capital(x)
+
+  }
+
 }

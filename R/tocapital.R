@@ -74,7 +74,7 @@ tocapital <- function(x, fix_mc = FALSE, collapseall = FALSE){
 
     sapply(x, capital)
 
-  } else if(is.list(x) && collapseall){
+  } else if(is.list(x) & collapseall){
 
     paste0(unlist(sapply(x, capital)), collapse = ' ')
 

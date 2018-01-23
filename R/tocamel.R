@@ -40,7 +40,7 @@
 
 tocamel <- function(x, collapseall = FALSE){
 
-  camel <- function(x, fmc = fix_mc){
+  camel <- function(x){
 
     gsub( # remove spaces
         "\\W+"
@@ -60,7 +60,7 @@ tocamel <- function(x, collapseall = FALSE){
 
     sapply(x, camel)
 
-  } else if(is.list(x) && collapseall){
+  } else if(is.list(x) & collapseall){
 
     paste0(unlist(sapply(x, camel)), collapse = "")
 

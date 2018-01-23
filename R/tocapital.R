@@ -1,6 +1,6 @@
-#' Convert names to capitalcase (ie Paul James)
+#' Convert character vectors to capitalcase (ie Paul James)
 #'
-#' Takes a character vector, or list of strings (list object of character vectors) and converts the case to capital case (AKA, title case). Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
+#' Takes a character vector, or list object of character vectors and converts the case to capital case (AKA, title case). Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
 #'
 #' @param x A character vector, or list object of character vectors.
 #' @param fix_mc A logical/boolean flag to indicate if \code{Mc*} names (like McDowell) should be double capitalized. Default is \code{FALSE}.

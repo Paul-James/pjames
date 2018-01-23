@@ -2,30 +2,49 @@
 % Please edit documentation in R/tocamel.R
 \name{tocamel}
 \alias{tocamel}
-\title{Convert string to camelcase (ie PaulJames)}
+\title{Convert character vectors to camelcase (ie PaulJames)}
 \usage{
-tocamel(..., sep = "\\\\W+", collapseall = FALSE)
+tocamel(x, collapseall = FALSE)
 }
 \arguments{
-\item{...}{A string, vector of strings, or list of strings in any letter case pattern.}
+\item{x}{A character vector, or list object of character vectors.}
 
-\item{sep}{A character vector containing characters or regular expression(s) to use for splitting. Default is \code{\\\\W+} (one or more characters that are not word characters; IE: not a letter or number).}
-
-\item{collapseall}{A logical/boolean flag to indicated whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.}
+\item{collapseall}{A logical/boolean flag to indicate whether or not you want a single character vector as your output. Default is \code{FALSE}.}
 }
 \description{
-Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
+Takes a character vector, or list object of character vectors and converts the case to camel case. Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
 }
 \examples{
 tocamel("jonny appleseed")
-tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
-tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
-tocamel("GraNDpa CrIPEs -mcgee!!!!")
+
+# using a list object
+tocamel(
+  list(
+    c("THE", "DARK", "KNIGHT")
+  , c("rises", "from", "the", "lazerus", "PIT")
+  )
+)
+
+# using a list object and collapseall
+tocamel(
+  list(
+    c("THE", "DARK", "KNIGHT")
+  , c("rises", "from", "the", "lazerus", "PIT")
+  )
+  , collapseall = TRUE
+)
+
+# examples of not fixing Mc* names (the default) vs fixing them
+tocamel(c("jonny appleseed", "GraNDpa CrIPEs-mcgee"))
+tocamel(
+    c("jonny appleseed", "GraNDpa CrIPEs-mcgee")
+  , fix_mc = TRUE
+)
 
 }
 \seealso{
 \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocapital}}
 }
-\keyword{camel}
 \keyword{camelcase}
+\keyword{capital}
 \keyword{case}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/tocapital.R
 \name{tocapital}
 \alias{tocapital}
-\title{Convert names to capitalcase (ie Paul James)}
+\title{Convert character vectors to capitalcase (ie Paul James)}
 \usage{
 tocapital(x, fix_mc = FALSE, collapseall = FALSE)
 }
@@ -14,7 +14,7 @@ tocapital(x, fix_mc = FALSE, collapseall = FALSE)
 \item{collapseall}{A logical/boolean flag to indicate whether or not you want a single character vector as your output. Default is \code{FALSE}.}
 }
 \description{
-Takes a character vector, or list of strings (list object of character vectors) and converts the case to capital case (AKA, title case). Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
+Takes a character vector, or list object of character vectors and converts the case to capital case (AKA, title case). Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
 }
 \examples{
 tocapital("jonny appleseed")

@@ -1,53 +1,73 @@
-#' Convert string to camelcase (ie PaulJames)
+#' Convert character vectors to camelcase (ie PaulJames)
 #'
-#' Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to \code{TRUE}.
+#' Takes a character vector, or list object of character vectors and converts the case to camel case. Outputs the same object and number of elements as the input unless the collapseall flag is set to \code{TRUE}, in which case it will output a single character vector.
 #'
-#' @param ... A string, vector of strings, or list of strings in any letter case pattern.
-#' @param sep A character vector containing characters or regular expression(s) to use for splitting. Default is \code{\\\\W+} (one or more characters that are not word characters; IE: not a letter or number).
-#' @param collapseall A logical/boolean flag to indicated whether or not you want a single string as your output (\code{TRUE}), or multiple strings (\code{FALSE}). Default is \code{FALSE}.
+#' @param x A character vector, or list object of character vectors.
+#' @param collapseall A logical/boolean flag to indicate whether or not you want a single character vector as your output. Default is \code{FALSE}.
 #'
 #' @seealso \code{\link{toupper}}, \code{\link{tolower}}, \code{\link{tocapital}}
-#' @keywords camel case camelcase
+#' @keywords capital case camelcase
 #'
 #' @examples
 #' tocamel("jonny appleseed")
-#' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"))
-#' tocamel(c("THE", "DARK", "KNIGHT"), c("rises from the lazerus PIT"), collapseall = TRUE)
-#' tocamel("GraNDpa CrIPEs -mcgee!!!!")
+#'
+#' # using a list object
+#' tocamel(
+#'   list(
+#'     c("THE", "DARK", "KNIGHT")
+#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   )
+#' )
+#'
+#' # using a list object and collapseall
+#' tocamel(
+#'   list(
+#'     c("THE", "DARK", "KNIGHT")
+#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   )
+#'   , collapseall = TRUE
+#' )
+#'
+#' # examples of not fixing Mc* names (the default) vs fixing them
+#' tocamel(c("jonny appleseed", "GraNDpa CrIPEs-mcgee"))
+#' tocamel(
+#'     c("jonny appleseed", "GraNDpa CrIPEs-mcgee")
+#'   , fix_mc = TRUE
+#' )
 #'
 #' @rdname tocamel
 #' @export
 
-tocamel <- function(
-    ...
-  , sep         = '\\W+'
-  , collapseall = FALSE
-  ){
+tocamel <- function(x, collapseall = FALSE){
 
-  strList <- list(...)
+  camel <- function(x, fmc = fix_mc){
 
-  # test to see if original input was already a list
-  if(class(strList[[1]]) == 'list'){
-    strList <- strList[[1]]
-  }
-  strList <- lapply(strList, as.list)
+    gsub( # remove spaces
+        "\\W+"
+      , ""
+      , gsub( # capital case words
+          "(?<=\\b)([a-z])"
+        , "\\U\\1"
+        , tolower(x)
+        , perl = TRUE
+        )
+      , perl = TRUE
+    )
 
-  camel <- function(string){
-
-    strVec <- unlist(strsplit(string, split = sep))
-    up     <- toupper(substring(strVec, 1, 1))
-    low    <- tolower(substring(strVec, 2))
-
-    paste0(up, low, collapse = '')
   }
 
-  if(collapseall == FALSE){
-    if(length(strList) > 1){
-      return(lapply(strList, function(x) sapply(x, camel)))
-    } else {
-      return(unlist(lapply(strList, function(x) sapply(x, camel))))
-    }
+  if(is.list(x) & !collapseall){
+
+    sapply(x, camel)
+
+  } else if(is.list(x) && collapseall){
+
+    paste0(unlist(sapply(x, camel)), collapse = "")
+
   } else {
-    return(paste0(sapply(strList, function(x) camel(unlist(x))), collapse = ''))
+
+    camel(x)
+
   }
+
 }

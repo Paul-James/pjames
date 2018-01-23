@@ -10,12 +10,13 @@
 #'
 #' @examples
 #' tocamel("jonny appleseed")
+#' tocamel(c("jonny appleseed", "GraNDpa CrIPEs-mcgee"))
 #'
 #' # using a list object
 #' tocamel(
 #'   list(
 #'     c("THE", "DARK", "KNIGHT")
-#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   , c("rises", "from the", "lazerus PIT")
 #'   )
 #' )
 #'
@@ -23,16 +24,9 @@
 #' tocamel(
 #'   list(
 #'     c("THE", "DARK", "KNIGHT")
-#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   , c("rises", "from the", "lazerus PIT")
 #'   )
 #'   , collapseall = TRUE
-#' )
-#'
-#' # examples of not fixing Mc* names (the default) vs fixing them
-#' tocamel(c("jonny appleseed", "GraNDpa CrIPEs-mcgee"))
-#' tocamel(
-#'     c("jonny appleseed", "GraNDpa CrIPEs-mcgee")
-#'   , fix_mc = TRUE
 #' )
 #'
 #' @rdname tocamel

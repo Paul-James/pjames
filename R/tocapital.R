@@ -16,7 +16,7 @@
 #' tocapital(
 #'   list(
 #'     c("THE", "DARK", "KNIGHT")
-#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   , c("rises", "from the", "lazerus PIT")
 #'   )
 #' )
 #'
@@ -24,7 +24,7 @@
 #' tocapital(
 #'   list(
 #'     c("THE", "DARK", "KNIGHT")
-#'   , c("rises", "from", "the", "lazerus", "PIT")
+#'   , c("rises", "from the", "lazerus PIT")
 #'   )
 #'   , collapseall = TRUE
 #' )

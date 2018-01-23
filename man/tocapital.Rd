@@ -23,7 +23,7 @@ tocapital("jonny appleseed")
 tocapital(
   list(
     c("THE", "DARK", "KNIGHT")
-  , c("rises", "from", "the", "lazerus", "PIT")
+  , c("rises", "from the", "lazerus PIT")
   )
 )
 
@@ -31,7 +31,7 @@ tocapital(
 tocapital(
   list(
     c("THE", "DARK", "KNIGHT")
-  , c("rises", "from", "the", "lazerus", "PIT")
+  , c("rises", "from the", "lazerus PIT")
   )
   , collapseall = TRUE
 )

@@ -2,6 +2,8 @@
 #'
 #' Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
 #'
+#' If using the default first and second numbers of \code{0} and \code{1} \R will return \code{Inf} starting at element number \code{1478}.
+#'
 #' @param seq_length The length of the sequence as a number. The sequence length has to be greater than or equal to 2 (\code{seq_length >= 2}). The default is \code{10}.
 #' @param first_num The starting point of the sequence. Use any positive number that comes before second_num (\code{first_num < second_num}). The default is \code{0}.
 #' @param second_num The next number in the sequence after first_num. Use any positive number that comes after first_num (\code{second_num > first_num}). The default is \code{1}.
@@ -18,6 +20,10 @@
 #' fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 #' fibonacci(30)
 #' fibonacci()
+#'
+#' fibonacci(1500)[1477]
+#' fibonacci(1500)[1478]
+#' fibonacci(1500)[1500]
 #'
 #' @rdname fibonacci
 #' @export
@@ -45,21 +51,27 @@ fibonacci <- function(
     stop("Make sure your second number is bigger than your first number slick.")
   }
 
-  fibo_seq <- vector(length = seq_length)
 
   if(seq_length < 2){
-    fibo_seq <- first_num
+
+    first_num
 
   } else if (seq_length == 2){
-    fibo_seq[1:2] <- c(first_num, second_num)
+
+    c(first_num, second_num)
 
   } else {
+
+    fibo_seq <- vector(length = seq_length)
+
     fibo_seq[1:2] <- c(first_num, second_num)
 
     for(i in 3:seq_length){
       fibo_seq[i] <- fibo_seq[i - 2] + fibo_seq[i - 1]
     }
+
+    fibo_seq
+
   }
 
-  fibo_seq
 }

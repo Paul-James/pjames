@@ -16,6 +16,9 @@ fibonacci(seq_length = 10, first_num = 0, second_num = 1)
 \description{
 Takes a sequence length and any two positive numbers in order to produce a fibonacci sequence. The fibonacci sequence is returned as a vector of numbers.
 }
+\details{
+If using the default first and second numbers of \code{0} and \code{1} \R will return \code{Inf} starting at element number \code{1478}.
+}
 \examples{
 \dontrun{
 fibonacci('eight', 2, -1)  # wrong #1
@@ -27,6 +30,10 @@ fibonacci(8, 10, 12)  # correct!
 fibonacci(seq_length = 20, first_num = 10, second_num = 15)  # yay!
 fibonacci(30)
 fibonacci()
+
+fibonacci(1500)[1477]
+fibonacci(1500)[1478]
+fibonacci(1500)[1500]
 
 }
 \keyword{fibonacci}

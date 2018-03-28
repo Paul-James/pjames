@@ -30,6 +30,7 @@
 #' asd <- 'george'
 #' zxc <- 'calisto!'
 #'
+#' \dontrun{
 #' iris %>%
 #'   messagef(
 #'     fmt = c('this makes %s a %s %s bruv', qwe, asd, zxc)
@@ -43,7 +44,7 @@
 #'   summarise(
 #'     sum = sum(Petal.Width)
 #'   )
-#'
+#' }
 #' #
 #'
 #' @rdname messagef

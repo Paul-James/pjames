@@ -20,8 +20,7 @@ A View that doesn't break a pipeline. Same thing as \code{utils::View()}, but re
 view(iris)
 
 # 2
-iris_test <- iris
-  \%>\%
+iris_test <- iris \%>\%
   group_by(
     Species
   ) \%>\%

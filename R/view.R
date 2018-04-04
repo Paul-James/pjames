@@ -14,8 +14,7 @@
 #' view(iris)
 #'
 #' # 2
-#' iris_test <- iris
-#'   %>%
+#' iris_test <- iris %>%
 #'   group_by(
 #'     Species
 #'   ) %>%

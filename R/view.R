@@ -35,15 +35,17 @@
 
 view <- function(x, title) {
 
-  if (!missing(title)) {
+  # the following gets the data to use the Rstudio Viewer, and not an X11 window
+  #   https://stackoverflow.com/questions/46953507/how-to-access-copy-the-view-function
+  RStudioView <- as.environment("package:utils")$View
 
-    View(x = x, title = title)
+  if (missing(title)) {
 
-  } else {
-
-    View(x, title = deparse(substitute(x)))
+    title <- deparse(substitute(x))[1]
 
   }
+
+  RStudioView(x, title)
 
   #
   invisible(x)

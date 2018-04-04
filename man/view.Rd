@@ -15,11 +15,11 @@ view(x, title)
 A View that doesn't break a pipeline. Same thing as \code{utils::View()}, but returns the original data object invisibly to allow putting view commands anywhere in a pipeline. This also allows for adding a view command at the end of pipelines while also assigning the data object the pipeline returns.
 }
 \examples{
+\dontrun{
 # 1
 view(iris)
 
 # 2
-\dontrun{
 iris_test <- iris
   \%>\%
   group_by(

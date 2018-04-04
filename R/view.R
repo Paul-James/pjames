@@ -9,11 +9,11 @@
 #' @keywords View pipeline
 #'
 #' @examples
+#' \dontrun{
 #' # 1
 #' view(iris)
 #'
 #' # 2
-#' \dontrun{
 #' iris_test <- iris
 #'   %>%
 #'   group_by(

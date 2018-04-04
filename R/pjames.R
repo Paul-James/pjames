@@ -14,7 +14,7 @@
 #' @importFrom tibble   as_tibble
 #' @importFrom parallel detectCores mclapply
 #' @importFrom hash     hash keys values
-#' @importFrom utils    install.packages
+#' @importFrom utils    install.packages View
 
 "_PACKAGE"
 

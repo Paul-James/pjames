@@ -21,7 +21,7 @@ Portmanteau of \code{message} and \code{sprintf}. Pass messages to the output co
 \details{
 Since this is able to take in a data object and pass it along (as in a pipeline), the first argument is the data argument and it's almost never intended to be named.
 
-The \code{fmt} parameter was kind of hacked out to allow use of this message function with a single text string in and out of a pipeline and multiple inputs for \code{sprintf} in and out of a pipeline. It's a vector of inputs that gets converted to the lowest common class (generally \code{character}). Because of this the fmt parameter always needs to be named. For example, you can't just type: \code{messagef('this is a message')} because the first argument is the data argument (which passes through silently if used in a pipeline) and the second argument is fmt. The correct use is: \code{messagef(fmt = 'this is a message')}.
+The \code{fmt} parameter was kind of hacked out to allow use of this message function with a single text string in and out of a pipeline and multiple inputs for \code{sprintf} in and out of a pipeline. It's a vector of inputs that gets converted to the lowest common class (generally \code{character}). Because of this the fmt parameter always needs to be named when not used within a pipeline. For example, you can't just type: \code{messagef('this is a message')} because the first argument is the data argument (which passes through silently if used in a pipeline) and the second argument is fmt. The correct use is: \code{messagef(fmt = 'this is a message')}.
 
 This can be used just like \code{base::message}, but if taking advantage of a \code{sprintf} like use case, the 1st value in the \code{fmt} vector is passed as the \code{fmt} parameter for \code{sprintf}, while all following values are supplied to \code{sprintf}'s \code{...} parameter.
 
@@ -32,23 +32,19 @@ See \code{?base::sprintf} for details on the limits and possibilities for inputs
   messagef("this isn't right") # wrong, fmt argument not named
 }
 # 1
-messagef(fmt = "this is right") # correct, fmt argument has to be named every time
+messagef(fmt = "this is right") # correct, fmt argument has to be named here
 
 # 2
-qwe <- 809
-asd <- 'george'
-zxc <- 'calisto!'
-
 \dontrun{
 iris \%>\%
   messagef(
-    fmt = c('this makes \%s a \%s \%s bruv', qwe, asd, zxc)
+    c('this makes \%s a \%s \%s bruv', 809, 'jargon', 'tester')
   ) \%>\%
   group_by(
     Species
   ) \%>\%
   messagef(
-    fmt = 'all done bruv'
+    'all done bruv'
   ) \%>\%
   summarise(
     sum = sum(Petal.Width)

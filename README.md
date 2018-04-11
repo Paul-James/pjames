@@ -13,7 +13,7 @@ Please note that this project is released with a `Contributor Code of Conduct`. 
 Introduction
 ------------
 
-This package repo is a collection of functions put together for use by me and my friends. This is meant to help keep `.Rprofile`s and the global environment clear. For example, the `rm(list = ls())` command clears out any custom functions defined in the `.Rprofile` because those functions are part of the global environment. This also saves time and effort pasting/sourcing commonly used functions to the top of every script you write. All these manual steps can be avoided with the use of a package.
+This `R` package repo is a collection of functions put together for use by me and my friends. This is meant to help keep `.Rprofile`s and the global environment clear. For example, the `rm(list = ls())` command clears out any custom functions defined in the `.Rprofile` because those functions are part of the global environment. This also saves time and effort pasting/sourcing commonly used functions to the top of every `R` script you write. All these manual steps can be avoided with the use of a package.
 
 Caveat to using this package
 ----------------------------
@@ -31,7 +31,7 @@ A few methods for reproducibility:
 How to install the package
 --------------------------
 
-Get a GitHub `PAT` (`GitHub user profile` &gt; `Settings` &gt; `Developer Settings` &gt; `Personal access tokens` &gt; `Generate new token` &gt; `checkmark "repo"` &gt; `Generate token`). Then save the token in `~/.Renviron`. Here's an easy way to do it from an script or console:
+Get a GitHub `PAT` (`GitHub user profile` &gt; `Settings` &gt; `Developer Settings` &gt; `Personal access tokens` &gt; `Generate new token` &gt; `checkmark "repo"` &gt; `Generate token`). Then save the token in `~/.Renviron`. Here's an easy way to do it from an `R` script or `R` console:
 
 ``` r
 cat(

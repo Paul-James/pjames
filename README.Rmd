@@ -59,7 +59,8 @@ cat(
 ```
 
 Replace **[replace-me-(brackets-as-well)-with-PAT]** with the token you get and restart the R session (which reloads the R environment variables).
-Now, in an R console, run: `devtools::install_github('paul-james/pjames')`.
+
+Install the `devtools` package if it's not already installed with: `install.packages(devtools)`. Then run: `devtools::install_github('paul-james/pjames')`.
 
 ---
 

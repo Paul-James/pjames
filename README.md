@@ -10,6 +10,11 @@ Code of Conduct
 
 Please note that this project is released with a `Contributor Code of Conduct`. By participating in this project you agree to abide by its terms.
 
+How to install the package
+--------------------------
+
+Install the `devtools` package if it's not already installed with: `install.packages(devtools)`. Then run: `devtools::install_github('paul-james/pjames')`.
+
 Introduction
 ------------
 
@@ -18,35 +23,17 @@ This `R` package repo is a collection of functions put together for use by me an
 Caveat to using this package
 ----------------------------
 
-Using the functions within this package, though helpful for everyday coding, pose a repoducibility issue. If you were to share your sweet script with someone and you used one of the functions defined in this package, your friend will get errors: `Error: could not find function "mylib"`.
+Using the functions within this package, though helpful for everyday coding, may pose a repoducibility issue. If you were to share your sweet script with someone and you used one of the functions defined in this package, your friend will get errors, `Error: could not find function "mylib"`, if they don't also have access to the package on their computer/server.
 
 A few methods for reproducibility:
 
-1.  Instruct the person you share it with to install the package, just like they would have to do if you used `plotly` or `dplyr`.
+1.  Instruct the person you share code with to install the package. This is just like they would have to do if you used `plotly` or `dplyr`.
 2.  Replace any functions you used from this package with more common or `Base R` equivalents.
 3.  Define the function at the top of the script so it will travel wherever the code goes.
 4.  Include another script with all user defined functions seperate from the script and `source()` in that script of functions.
     -   This method isn't super great for sharing code, but it's the preferred method for large projects or complicated analysis that have many user defined functions whether you're sharing your code or not.
 
-How to install the package
---------------------------
-
-Get a GitHub `PAT` (`GitHub user profile` &gt; `Settings` &gt; `Developer Settings` &gt; `Personal access tokens` &gt; `Generate new token` &gt; `checkmark "repo"` &gt; `Generate token`). Then save the token in `~/.Renviron`. Here's an easy way to do it from an `R` script or `R` console:
-
-``` r
-cat(
-    'GITHUB_PAT=[replace-me-(brackets-as-well)-with-PAT]\n'
-  , file   = file.path(
-      normalizePath('~/')
-    , '.Renviron'
-    )
-  , append = T
-)
-```
-
-Replace **\[replace-me-(brackets-as-well)-with-PAT\]** with the token you get and restart the R session (which reloads the R environment variables).
-
-Install the `devtools` package if it's not already installed with: `install.packages(devtools)`. Then run: `devtools::install_github('paul-james/pjames')`.
+The problem with adopting the last two methods listed is if you're using the same user defined funtions across many/all projects, then you're copying and pasting them into every single project.
 
 ------------------------------------------------------------------------
 

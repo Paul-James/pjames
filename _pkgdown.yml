@@ -1,0 +1,56 @@
+template:
+  params:
+    bootswatch: superhero
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right:
+    - twitter
+    - github
+  components:
+    home:
+      icon: fa-home fa-2x
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fa-github fa-2x
+      href: https://github.com/paul-james/pjames
+    twitter:
+      icon: fa-twitter fa-2x
+      href: https://www.twitter.com/pauljames379
+
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - '`casetrim`'
+  - '`combinecols`'
+  - '`excelpmt`'
+  - '`fibonacci`'
+  - '`grepdf`'
+  - '`hashcol`'
+  - '`left`'
+  - '`makepath`'
+  - '`mylib`'
+  - '`%nin%`'
+  - '`pft`'
+  - '`pjames`'
+  - '`pp`'
+  - '`right`'
+  - '`tocamel`'
+  - '`tocapital`'
+  - '`tourney`'
+
+articles:
+- title: All vignettes
+  desc: ~
+  contents: '``'

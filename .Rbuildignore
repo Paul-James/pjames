@@ -5,3 +5,9 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
+^README\.Rmd$
+^README-.*\.png$
+^figures$
+^_pkgdown\.yml$
+^docs$
+^CODE_OF_CONDUCT\.md$

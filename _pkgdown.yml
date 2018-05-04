@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: superhero
+    bootswatch: slate
 
 navbar:
   structure:
@@ -34,12 +34,14 @@ reference:
   contents:
   - '`casetrim`'
   - '`combinecols`'
+  - '`evalparse`'
   - '`excelpmt`'
   - '`fibonacci`'
   - '`grepdf`'
   - '`hashcol`'
   - '`left`'
   - '`makepath`'
+  - '`messagef`'
   - '`mylib`'
   - '`%nin%`'
   - '`pft`'
@@ -49,6 +51,7 @@ reference:
   - '`tocamel`'
   - '`tocapital`'
   - '`tourney`'
+  - '`view`'
 
 articles:
 - title: All vignettes

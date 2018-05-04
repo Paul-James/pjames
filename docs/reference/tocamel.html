@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert string to camelcase (ie PaulJames) — tocamel • pjames</title>
+<title>Convert character vectors to camelcase (ie PaulJames) — tocamel • pjames</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -28,9 +28,9 @@
 
 
 
-<meta property="og:title" content="Convert string to camelcase (ie PaulJames) — tocamel" />
+<meta property="og:title" content="Convert character vectors to camelcase (ie PaulJames) — tocamel" />
 
-<meta property="og:description" content="Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to TRUE." />
+<meta property="og:description" content="Takes a character vector, or list object of character vectors and converts the case to camel case. Outputs the same object and number of elements as the input unless the collapseall flag is set to TRUE, in which case it will output a single character vector." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pjames</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.3</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.5</span>
       </span>
     </div>
 
@@ -102,33 +102,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert string to camelcase (ie PaulJames)</h1>
+    <h1>Convert character vectors to camelcase (ie PaulJames)</h1>
     <small class="dont-index">Source: <a href='https://github.com/paul-james/pjames/blob/master/R/tocamel.R'><code>R/tocamel.R</code></a></small>
     <div class="hidden name"><code>tocamel.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Takes a string, vector(s) of strings, or list of strings and converts the case to camelcase. Outputs a string vector if only a single string vector was used as input. Outputs a list of string vectors if multiple string vectors were used as input. Outputs a single string if the collapseall flag is set to <code>TRUE</code>.</p>
+    <p>Takes a character vector, or list object of character vectors and converts the case to camel case. Outputs the same object and number of elements as the input unless the collapseall flag is set to <code>TRUE</code>, in which case it will output a single character vector.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tocamel</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"\\W+"</span>, <span class='kw'>collapseall</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>tocamel</span>(<span class='no'>x</span>, <span class='kw'>collapseall</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>A string, vector of strings, or list of strings in any letter case pattern.</p></td>
-    </tr>
-    <tr>
-      <th>sep</th>
-      <td><p>A character vector containing characters or regular expression(s) to use for splitting. Default is <code>\\W+</code> (one or more characters that are not word characters; IE: not a letter or number).</p></td>
+      <th>x</th>
+      <td><p>A character vector, or list object of character vectors.</p></td>
     </tr>
     <tr>
       <th>collapseall</th>
-      <td><p>A logical/boolean flag to indicated whether or not you want a single string as your output (<code>TRUE</code>), or multiple strings (<code>FALSE</code>). Default is <code>FALSE</code>.</p></td>
+      <td><p>A logical/boolean flag to indicate whether or not you want a single character vector as your output. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
     
@@ -138,12 +134,25 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tocamel</span>(<span class='st'>"jonny appleseed"</span>)</div><div class='output co'>#&gt; [1] "JonnyAppleseed"</div><div class='input'><span class='fu'>tocamel</span>(<span class='fu'>c</span>(<span class='st'>"THE"</span>, <span class='st'>"DARK"</span>, <span class='st'>"KNIGHT"</span>), <span class='fu'>c</span>(<span class='st'>"rises from the lazerus PIT"</span>))</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "The"    "Dark"   "Knight"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "RisesFromTheLazerusPit"
-#&gt; </div><div class='input'><span class='fu'>tocamel</span>(<span class='fu'>c</span>(<span class='st'>"THE"</span>, <span class='st'>"DARK"</span>, <span class='st'>"KNIGHT"</span>), <span class='fu'>c</span>(<span class='st'>"rises from the lazerus PIT"</span>), <span class='kw'>collapseall</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "TheDarkKnightRisesFromTheLazerusPit"</div><div class='input'><span class='fu'>tocamel</span>(<span class='st'>"GraNDpa CrIPEs -mcgee!!!!"</span>)</div><div class='output co'>#&gt; [1] "GrandpaCripesMcgee"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>tocamel</span>(<span class='st'>"jonny appleseed"</span>)</div><div class='output co'>#&gt; [1] "JonnyAppleseed"</div><div class='input'><span class='fu'>tocamel</span>(<span class='fu'>c</span>(<span class='st'>"jonny appleseed"</span>, <span class='st'>"GraNDpa CrIPEs-mcgee"</span>))</div><div class='output co'>#&gt; [1] "JonnyAppleseed"     "GrandpaCripesMcgee"</div><div class='input'>
+<span class='co'># using a list object</span>
+<span class='fu'>tocamel</span>(
+  <span class='fu'>list</span>(
+    <span class='fu'>c</span>(<span class='st'>"THE"</span>, <span class='st'>"DARK"</span>, <span class='st'>"KNIGHT"</span>)
+  , <span class='fu'>c</span>(<span class='st'>"rises"</span>, <span class='st'>"from the"</span>, <span class='st'>"lazerus PIT"</span>)
+  )
+)</div><div class='output co'>#&gt;      [,1]     [,2]        
+#&gt; [1,] "The"    "Rises"     
+#&gt; [2,] "Dark"   "FromThe"   
+#&gt; [3,] "Knight" "LazerusPit"</div><div class='input'>
+<span class='co'># using a list object and collapseall</span>
+<span class='fu'>tocamel</span>(
+  <span class='fu'>list</span>(
+    <span class='fu'>c</span>(<span class='st'>"THE"</span>, <span class='st'>"DARK"</span>, <span class='st'>"KNIGHT"</span>)
+  , <span class='fu'>c</span>(<span class='st'>"rises"</span>, <span class='st'>"from the"</span>, <span class='st'>"lazerus PIT"</span>)
+  )
+  , <span class='kw'>collapseall</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</div><div class='output co'>#&gt; [1] "TheDarkKnightRisesFromTheLazerusPit"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easily load multiple libraries without many library calls — mylib • pjames</title>
+<title>Wrapper for eval and parse text — evalparse • pjames</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,9 +28,9 @@
 
 
 
-<meta property="og:title" content="Easily load multiple libraries without many library calls — mylib" />
+<meta property="og:title" content="Wrapper for eval and parse text — evalparse" />
 
-<meta property="og:description" content="Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first. Currently only works if package is available on CRAN." />
+<meta property="og:description" content="Takes a character/text string and evaluates it as if it was code (an R expression). parse() returns the text as if it was code. eval then runs/evaluates the code afterwards." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -102,42 +102,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Easily load multiple libraries without many library calls</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paul-james/pjames/blob/master/R/mylib.R'><code>R/mylib.R</code></a></small>
-    <div class="hidden name"><code>mylib.Rd</code></div>
+    <h1>Wrapper for eval and parse text</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paul-james/pjames/blob/master/R/evalparse.R'><code>R/evalparse.R</code></a></small>
+    <div class="hidden name"><code>evalparse.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Takes an itemized listing of R package names and loads them all. If the package is not currently installed, the function will attempt to install the package first. Currently only works if package is available on CRAN.</p>
+    <p>Takes a <code>character</code>/<code>text</code> string and evaluates it as if it was code (an <span style="R">R</span> expression). <code>parse()</code> returns the text as if it was code. <code>eval</code> then runs/evaluates the code afterwards.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>mylib</span>(<span class='no'>...</span>, <span class='kw'>suppress</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>evalparse</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>...</th>
-      <td><p>An itemized listing of R package names to either install and load, or just load.</p></td>
-    </tr>
-    <tr>
-      <th>suppress</th>
-      <td><p>A boolean indicator defaulted to TRUE that suppresses package messages when loaded. Set to <code>FALSE</code> to view all messages.</p></td>
+      <th>x</th>
+      <td><p>A <code>character</code> string to be converted to code (IE parsed) and run (IE evaluated).</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Simplistically, the purpose of this idea is to get into the realm of code that can write code, but this is dependent on either the input parameters or the data, so not automatic. The purpose of this specific function, however, is for saving on typing: <code>eval(parse(text = x))</code> VS <code>evalparse(x)</code>.</p>
+    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>library</code>, <code>require</code>, <code>install.packages</code></p></div>
+    <div class='dont-index'><p><code>eval</code>, <code>parse</code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>mylib</span>(<span class='fu'>c</span>(<span class='st'>"RPostgreSQL"</span>, <span class='st'>"stringr"</span>, <span class='st'>"dplyr"</span>))
-<span class='fu'>mylib</span>(<span class='st'>"data.table"</span>)
-<span class='co'># }</span><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw'>if</span>(<span class='fu'>runif</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='kw'>&gt;=</span> <span class='fl'>0.5</span>){
+  <span class='no'>vec</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"mickey mouse"</span>, <span class='st'>"bambi"</span>, <span class='st'>"herbert hoover"</span>)
+} <span class='kw'>else</span> {
+  <span class='no'>vec</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='fl'>12.6548</span>, <span class='fl'>13.21549</span>, <span class='fl'>84.946562</span>)
+}
+
+<span class='no'>my_string</span> <span class='kw'>&lt;-</span> <span class='fu'>sprintf</span>(
+  <span class='st'>"as.%s(
+     substring(
+         trimws(vec, which = 'left')
+       , first = 1
+       , last  = 4
+     )
+   )"</span>
+  , <span class='fu'>class</span>(<span class='no'>vec</span>)
+  )
+
+<span class='fu'>evalparse</span>(<span class='no'>my_string</span>)</div><div class='output co'>#&gt; [1] 12.6 13.2 84.9</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -145,6 +159,8 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>

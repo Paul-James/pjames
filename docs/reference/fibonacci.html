@@ -11,7 +11,7 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pjames</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.3</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.5</span>
       </span>
     </div>
 
@@ -132,6 +132,10 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>If using the default first and second numbers of <code>0</code> and <code>1</code> <span style="R">R</span> will return <code>Inf</code> starting at element number <code>1478</code>.</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
@@ -143,13 +147,16 @@
 #&gt; [13]  3050  4935  7985 12920 20905 33825 54730 88555</div><div class='input'><span class='fu'>fibonacci</span>(<span class='fl'>30</span>)</div><div class='output co'>#&gt;  [1]      0      1      1      2      3      5      8     13     21     34
 #&gt; [11]     55     89    144    233    377    610    987   1597   2584   4181
 #&gt; [21]   6765  10946  17711  28657  46368  75025 121393 196418 317811 514229</div><div class='input'><span class='fu'>fibonacci</span>()</div><div class='output co'>#&gt;  [1]  0  1  1  2  3  5  8 13 21 34</div><div class='input'>
+<span class='fu'>fibonacci</span>(<span class='fl'>1500</span>)[<span class='fl'>1477</span>]</div><div class='output co'>#&gt; [1] 130698922376339873776226820220846264862428666064466262484866480064400862806886446602008062262468262606408626860848402004260448606446240862464264440480006022840222646426446848006244226242600846684466226284686864484282428026488660682620828048686460688420664888280040480622842484062880088242628888226088866068604</div><div class='input'><span class='fu'>fibonacci</span>(<span class='fl'>1500</span>)[<span class='fl'>1478</span>]</div><div class='output co'>#&gt; [1] Inf</div><div class='input'><span class='fu'>fibonacci</span>(<span class='fl'>1500</span>)[<span class='fl'>1500</span>]</div><div class='output co'>#&gt; [1] Inf</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

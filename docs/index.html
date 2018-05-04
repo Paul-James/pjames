@@ -6,11 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Helper Functions • pjames</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Local Helper Functions">
-<meta property="og:description" content="A misc. collection of helper functions put together for use by me. 
+<meta property="og:description" content="A misc. collection of helper functions put together for use by me.
   This is meant to help keep .Rprofile and the global environment clear.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">pjames</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.3</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.5</span>
       </span>
     </div>
 
@@ -86,26 +86,6 @@
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
 <p>Please note that this project is released with a <code>Contributor Code of Conduct</code>. By participating in this project you agree to abide by its terms.</p>
 </div>
-<div id="introduction" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This <code>R</code> package repo is a collection of functions put together for use by me and my friends. This is meant to help keep your <code>.Rprofile</code> and the global environment clear. For example, the <code>rm(list = ls())</code> command clears out any custom functions defined in the <code>.Rprofile</code> because those functions are part of the global environment. This also saves time and effort pasting/sourcing commonly used functions to the top of every <code>R</code> script you write. All these manual steps can be avoided with the use of a package.</p>
-</div>
-<div id="caveat-to-using-this-package" class="section level2">
-<h2 class="hasAnchor">
-<a href="#caveat-to-using-this-package" class="anchor"></a>Caveat to using this package</h2>
-<p>Using the functions within this package, though helpful for everyday coding, pose a repoducibility issue. If you were to share your sweet script with someone and you used one of the functions defined in this package, your friend will get errors: <code>Error: could not find function "mylib"</code>.</p>
-<p>A few methods for reproducibility:</p>
-<ol style="list-style-type: decimal">
-<li>Replace any functions you used from this package with more common or <code>Base R</code> equivalents.</li>
-<li>Define the function at the top of the script so it will travel wherever the code goes.</li>
-<li>Include another script with all user defined functions seperate from the script and <code>source()</code> in that script of functions.
-<ul>
-<li>This method isn’t super great for sharing code, but it’s the preferred method for large projects or complicated analysis that have many user defined functions whether you’re sharing your code or not.</li>
-</ul>
-</li>
-</ol>
-</div>
 <div id="how-to-install-the-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-install-the-package" class="anchor"></a>How to install the package</h2>
@@ -118,6 +98,28 @@
 </li>
 <li>Run: <code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">devtools::install_github('paul-james/pjames')</a></code> in an <code>R</code> console.</li>
 </ol>
+</div>
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
+<p>This <code>R</code> package repo is a collection of functions put together for use by me and my friends. This is meant to help keep your <code>.Rprofile</code> and the global environment clear. For example, the <code>rm(list = ls())</code> command clears out any custom functions defined in the <code>.Rprofile</code> because those functions are part of the global environment. This also saves time and effort pasting/sourcing commonly used functions to the top of every <code>R</code> script you write. All these manual steps can be avoided with the use of a package.</p>
+</div>
+<div id="caveat-to-using-this-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#caveat-to-using-this-package" class="anchor"></a>Caveat to using this package</h2>
+<p>Using the functions within this package, though helpful for everyday coding, may pose a repoducibility issue. If you were to share your sweet script with someone and you used one of the functions defined in this package, your friend will get errors, <code>Error: could not find function "mylib"</code>, if they don’t also have access to the package on their computer/server.</p>
+<p>A few methods for reproducibility:</p>
+<ol style="list-style-type: decimal">
+<li>Instruct the person you share code with to install the package. This is just like they would have to do if you used <code>plotly</code> or <code>dplyr</code>.</li>
+<li>Replace any functions you used from this package with more common or <code>Base R</code> equivalents.</li>
+<li>Define the function at the top of the script so it will travel wherever the code goes.</li>
+<li>Include another script with all user defined functions seperate from the script and <code>source()</code> in that script of functions.
+<ul>
+<li>This method isn’t super great for sharing code, but it’s the preferred method for large projects or complicated analysis that have many user defined functions whether you’re sharing your code or not.</li>
+</ul>
+</li>
+</ol>
+<p>The problem with adopting the last two methods listed is if you’re using the same user defined functions across many/all projects, then you’re copying and pasting them into every single project.</p>
 <hr>
 <p><img src="reference/figures/pyaa-office-whiteboard.png" align="left"></p>
 </div>
@@ -152,6 +154,7 @@
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
 <li><a href="https://travis-ci.org/Paul-James/pjames"><img src="https://travis-ci.org/Paul-James/pjames.svg?branch=dev" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/Paul-James/pjames"><img src="https://ci.appveyor.com/api/projects/status/github/Paul-James/pjames?branch=dev&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/github/Paul-James/pjames?branch=dev"><img src="https://img.shields.io/codecov/c/github/Paul-James/pjames/dev.svg" alt="Coverage Status"></a></li>

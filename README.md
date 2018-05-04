@@ -13,7 +13,9 @@ Please note that this project is released with a `Contributor Code of Conduct`. 
 How to install the package
 --------------------------
 
-Install the `devtools` package if it's not already installed with: `install.packages(devtools)`. Then run: `devtools::install_github('paul-james/pjames')`.
+1.  Make sure the `devtools` `R` package is installed.
+    -   If not, run the following in an `R` console, `install.packages('devtools')`
+2.  Run: `devtools::install_github('paul-james/pjames')` in an `R` console.
 
 Introduction
 ------------
@@ -33,16 +35,7 @@ A few methods for reproducibility:
 4.  Include another script with all user defined functions seperate from the script and `source()` in that script of functions.
     -   This method isn't super great for sharing code, but it's the preferred method for large projects or complicated analysis that have many user defined functions whether you're sharing your code or not.
 
-<<<<<<< HEAD
-How to install the package
---------------------------
-
-1.  Make sure the `devtools` `R` package is installed.
-    -   If not, run the following in an `R` console, `install.packages('devtools')`
-2.  Run: `devtools::install_github('paul-james/pjames')` in an `R` console.
-=======
-The problem with adopting the last two methods listed is if you're using the same user defined funtions across many/all projects, then you're copying and pasting them into every single project.
->>>>>>> 3de7eb13c6582f357103ae0a06cd3c13f7d812a2
+The problem with adopting the last two methods listed is if you're using the same user defined functions across many/all projects, then you're copying and pasting them into every single project.
 
 ------------------------------------------------------------------------
 

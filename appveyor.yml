@@ -43,3 +43,8 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+
+platform: x64
+
+environment:
+  R_ARCH: x64

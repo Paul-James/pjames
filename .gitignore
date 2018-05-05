@@ -35,3 +35,4 @@ vignettes/*.pdf
 
 # MacOS cruft
 .DS_Store
+.Rproj.user

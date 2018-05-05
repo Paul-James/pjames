@@ -15,6 +15,20 @@ cache:
 
 # Adapt as necessary starting from here
 
+platform: x64
+
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
+
+  matrix:
+  - R_VERSION: devel
+    R_ARCH: x64
+    GCC_PATH: mingw_64
+
+  - R_VERSION: patched
+    GCC_PATH: mingw_32
+
 build_script:
   - travis-tool.sh install_deps
 
@@ -43,8 +57,3 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
-
-platform: x64
-
-environment:
-  R_ARCH: x64

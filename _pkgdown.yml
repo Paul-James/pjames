@@ -1,8 +1,11 @@
-url: http://paul-james.me/pjames
+url: https://paul-james.me/pjames
 
 template:
   params:
     bootswatch: slate
+    docsearch:
+      api_key: 03697f12ee33d278d301d48b989cd6c3
+      index_name: pjames
 
 navbar:
   structure:

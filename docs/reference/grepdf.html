@@ -27,6 +27,11 @@
 <script src="../pkgdown.js"></script>
 
 
+<!-- docsearch -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+
 
 <meta property="og:title" content="Grep a data frame: many synergy, much useful, wow — grepdf" />
 
@@ -35,7 +40,7 @@ Not optimized and is currently slow on big datasets or many matches. Further wor
 One of the use case would be to find and replace a pattern wherever it is in the data.
 Another use case not yet built in is to identify data missingness." />
 
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://paul-james.me/pjames/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -94,6 +99,12 @@ Another use case not yet built in is to identify data missingness." />
   </a>
 </li>
       </ul>
+      
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
       
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -215,6 +226,23 @@ Another use case not yet built in is to identify data missingness.</p>
    </div>
 
   
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: '03697f12ee33d278d301d48b989cd6c3',
+    indexName: 'pjames',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
   </body>
 </html>

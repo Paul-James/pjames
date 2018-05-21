@@ -29,10 +29,17 @@ Please note that this project is released with a `Contributor Code of Conduct`. 
 
 ## How to install the package
 
-1. Make sure the `devtools` `R` package is installed.
-    * If not, run the following in an `R` console, `install.packages('devtools')`
-1. Run: `devtools::install_github('paul-james/pjames')` in an `R` console.
+The `devtools` `R` package is required in order to install any packages from `GitHub`. Run the following code in an `R` console:
 
+```r
+if (!'devtools' %in% rownames(installed.packages())) {
+
+  install.packages('devtools')
+
+}
+
+devtools::install_github('paul-james/pjames')
+```
 
 ## Introduction
 

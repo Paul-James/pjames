@@ -45,11 +45,11 @@ casetrim <- function(
 
   if(case == 'upper'){
     df %<>%
-      sapply(function(XX) toupper(trimws(XX))) %>%
+      lapply(function(XX) toupper(trimws(XX))) %>%
       data.frame()
   } else {
     df %<>%
-      sapply(function(XX) tolower(trimws(XX))) %>%
+      lapply(function(XX) tolower(trimws(XX))) %>%
       data.frame()
   }
 

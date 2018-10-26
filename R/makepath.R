@@ -72,8 +72,16 @@ makepath <- function(
   , keepvalues
   , ordered    = TRUE
   , keepconsec = TRUE
-  , n.cores    = detectCores() - 1
+  , n.cores    = parallel::detectCores() - 1
   ){
+
+  # make sure suggested pkg dplyr is installed and available
+  if(!requireNamespace("dplyr", quietly = TRUE)) {
+    stop(
+        "Package \"dplyr\" needed for this function to work. Please install it."
+      , call. = FALSE
+      )
+  }
 
   # group each person's obs together
   personH <- hashcol(groupcol, n.cores)
@@ -129,23 +137,21 @@ makepath <- function(
   }
 
   # parallelize it
-  pathH <- hash(
-      keys(personH)
-    , mclapply(
-        keys(personH)
+  pathH <- hash::hash(
+      hash::keys(personH)
+    , parallel::mclapply(
+        hash::keys(personH)
       , function(X) pathVec(X, subset = subset)
       )
     )
 
   # assign path values to the path vector
   df_path <- data.frame(
-      id   = keys(pathH)
-    , path = values(pathH)
+      id   = hash::keys(pathH)
+    , path = hash::values(pathH)
     )
   df_groupcol <- data.frame(id = as.character(groupcol))
 
   # return the path vector
-  suppressMessages(
-    left_join(df_groupcol, df_path)$path
-  )
+  dplyr::left_join(df_groupcol, df_path, by = 'id')$path
 }

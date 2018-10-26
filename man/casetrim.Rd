@@ -20,7 +20,7 @@ Removes leading and trailing whitespace from every column in a dataframe or list
 \examples{
 df <- data.frame(
     performingPhysio = c("JILL jones      ", "    jack BLACK", "", " RegiNald ChesterField ")
-  , operatingPhysio  = c("Who Dat      ", "chuck FLEMMING      ", NA, "          shankman, razor shankman")
+  , "operating Physio"  = c("Who Dat      ", "chuck FLEMMING      ", NA, "          shankman, razor shankman")
   , consent          = rep(FALSE, times = 4)
   , duration_hrs     = 5:8
   , stringsAsFactors = FALSE
@@ -39,7 +39,7 @@ casetrim(
 
 }
 \seealso{
-\code{\link{toupper}}, \code{\link{tolower}}, \code{\link{trimws}}
+\code{\link[base]{toupper}}, \code{\link[base]{tolower}}, \code{\link[base]{trimws}}
 }
 \keyword{case}
 \keyword{clean}

@@ -5,7 +5,7 @@
 \title{Grep a data frame: many synergy, much useful, wow}
 \usage{
 grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
-  save_col_name = FALSE, save_pattern = FALSE, tibble = TRUE, ...)
+  save_col_name = FALSE, save_pattern = FALSE, ...)
 }
 \arguments{
 \item{df_input}{data frame to search}
@@ -20,8 +20,6 @@ grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
 
 \item{save_pattern}{include the pattern searched for in the returned results?}
 
-\item{tibble}{return a tibble? set to \code{FALSE} for regular data.frame}
-
 \item{...}{additional arguments for grep function}
 }
 \description{
@@ -35,12 +33,11 @@ grepdf(
     df_input = iris
   , pattern  = '3.1|5.9'
   , unique   = FALSE
-  , tibble   = FALSE
 )
 
 }
 \seealso{
-\code{\link{grep}}
+\code{\link[base]{grep}}
 }
 \keyword{data.frame}
 \keyword{grep}

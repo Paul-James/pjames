@@ -4,7 +4,7 @@
 \alias{hashcol}
 \title{Create a grouped hash table instead of using split()}
 \usage{
-hashcol(X, n.cores = detectCores() - 1)
+hashcol(X, n.cores = parallel::detectCores() - 1)
 }
 \arguments{
 \item{X}{A dataframe column you want to group by. IE: \code{df$id}}
@@ -41,7 +41,7 @@ hash::values(h)[ , 26] # value accessor method; same as previous line
 
 }
 \seealso{
-\code{\link{parallel}}, \code{\link{mclapply}}, \code{\link{hash}}
+\code{\link[parallel]{mclapply}}, \code{\link[hash]{hash}}
 }
 \keyword{dict}
 \keyword{hash}

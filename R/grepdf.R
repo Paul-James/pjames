@@ -11,10 +11,9 @@
 #' @param save_df_name include the input data frame name in the returned results?
 #' @param save_col_name include the matched value column name in the returned results?
 #' @param save_pattern include the pattern searched for in the returned results?
-#' @param tibble return a tibble? set to \code{FALSE} for regular data.frame
 #' @param ... additional arguments for grep function
 #'
-#' @seealso \code{\link{grep}}
+#' @seealso `\link[base]{grep}`
 #' @keywords grep tibble data.frame regex
 #'
 #' @examples
@@ -22,7 +21,6 @@
 #'     df_input = iris
 #'   , pattern  = '3.1|5.9'
 #'   , unique   = FALSE
-#'   , tibble   = FALSE
 #' )
 #'
 #' @rdname grepdf
@@ -35,7 +33,6 @@ grepdf <- function(
   , save_df_name  = FALSE
   , save_col_name = FALSE
   , save_pattern  = FALSE
-  , tibble        = TRUE
   , ...
   ){
 
@@ -78,7 +75,7 @@ grepdf <- function(
   }
 
   ## combine the list into a single dataframe and return it if there are matches
-  df_output <- bind_rows(df_output)
+  df_output <- do.call(rbind, df_output)
 
   ## stop here if there are no matches
   if(nrow(df_output) == 0){
@@ -107,19 +104,9 @@ grepdf <- function(
   df_output$match <- unlist(matches)
 
   ## output the results
-  if(tibble){
-
-    if(unique){
-      as_tibble(df_output[!duplicated(df_output$row_num), ])
-    } else {
-      as_tibble(df_output)
-    }
+  if(unique){
+    df_output[!duplicated(df_output$row_num), ]
   } else {
-
-    if(unique){
-      df_output[!duplicated(df_output$row_num), ]
-    } else {
-      df_output
-    }
+    df_output
   }
 }

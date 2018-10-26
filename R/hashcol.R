@@ -2,14 +2,14 @@
 #'
 #' Takes a dataframe column you want to group by and returns a hash table. The keys are the unique values of the group by column and the values are the row numbers where each key is found. This is parallelized across all available cores on your CPU and is a direct and much faster replacement of split(df, df$group_by).
 #'
-#' Check the OS and chooses the correct package to use for mclapply. The pkg \code{parallelsugar} can be used for Windows (...but it's currently not) while \code{parallel} is used for everything else.
+#' Check the OS and chooses the correct package to use for mclapply. The pkg `parallelsugar` can be used for Windows (...but it's currently not) while `parallel` is used for everything else.
 #'
-#' WARNING FOR WINDOWS USERS: not paralellized; only runs \code{lapply} instead of \code{mclapply}.
+#' WARNING FOR WINDOWS USERS: not paralellized; only runs `lapply` instead of `mclapply`.
 #'
-#' @param X A dataframe column you want to group by. IE: \code{df$id}
+#' @param X A dataframe column you want to group by. IE: `df$id`
 #' @param n.cores An integer value that indicates the number of cores you want to run the process on. The default is 1 less than the total number of available cores on the CPU for UNIX flavored OSs, while the only option (currently) on Windows OS is 1.
 #'
-#' @seealso \code{\link{parallel}}, \code{\link{mclapply}}, \code{\link{hash}}
+#' @seealso `\link[parallel]{mclapply}`, `\link[hash]{hash}`
 #' @keywords parallel hash map dict split
 #'
 #' @examples
@@ -35,7 +35,15 @@
 #' @rdname hashcol
 #' @export
 
-hashcol <- function(X, n.cores = detectCores() - 1){
+hashcol <- function(X, n.cores = parallel::detectCores() - 1){
+
+  # make sure suggested pkg dplyr is installed and available
+  if(!requireNamespace("hash", quietly = TRUE)) {
+    stop(
+      "Package \"hash\" needed for this function to work. Please install it."
+      , call. = FALSE
+    )
+  }
 
   ##
   keys <- unique(X)
@@ -47,7 +55,7 @@ hashcol <- function(X, n.cores = detectCores() - 1){
       , FUN = function(Y) which(X == Y)
     )
   } else {
-    vals <- mclapply(
+    vals <- parallel::mclapply(
         X        = keys
       , FUN      = function(Y) which(X == Y)
       , mc.cores = n.cores
@@ -58,5 +66,5 @@ hashcol <- function(X, n.cores = detectCores() - 1){
   names(vals) <- keys
 
   ##
-  hash(vals)
+  hash::hash(vals)
 }

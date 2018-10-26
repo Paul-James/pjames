@@ -1,7 +1,7 @@
 Package: pjames
 Type: Package
 Title: Local Helper Functions
-Version: 0.5.5
+Version: 0.6.0
 Date: 2017-11-07
 Authors@R: c(
   person("Paul", "James", email = "paul.james379@gmail.com", role = c("aut", "cre"))
@@ -12,17 +12,15 @@ Description: A misc. collection of helper functions put together for use by me.
 URL: https://github.com/paul-james/pjames
 BugReports: https://github.com/paul-james/pjames/issues
 Depends: R (>= 3.1.2)
-Imports:
+Suggests:
     hash
-  , dplyr
-  , tibble
-  , magrittr
   , parallel
   , utils
-Suggests:
-    covr
+  , covr
   , testthat
   , rmarkdown
+  , magrittr
+  , dplyr
   , knitr
 Encoding: UTF-8
 License: MIT + file LICENSE

@@ -13,16 +13,16 @@ Please note that this project is released with a `Contributor Code of Conduct`. 
 How to install the package
 --------------------------
 
-The `devtools` `R` package is required in order to install any packages from `GitHub`. Run the following code in an `R` console:
+The `remotes` `R` package is helpful in order to easily install any packages from `GitHub`. Run the following code in an `R` console:
 
 ``` r
-if (!'devtools' %in% rownames(installed.packages())) {
+if (!'remotes' %in% rownames(installed.packages())) {
 
-  install.packages('devtools')
+  install.packages('remotes')
 
 }
 
-devtools::install_github('paul-james/pjames')
+remotes::install_github('paul-james/pjames')
 ```
 
 Introduction

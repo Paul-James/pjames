@@ -25,7 +25,7 @@ mylib <- function(
 
   for(i in seq_along(pkgNameVec)){
     if(sum( grepl(pkgNameVec[i], library()[[2]]) ) == 0){
-      install.packages(pkgNameVec[i])
+      utils::install.packages(pkgNameVec[i])
     }
     if(suppress == FALSE){
       library(

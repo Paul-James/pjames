@@ -75,14 +75,6 @@ makepath <- function(
   , n.cores    = parallel::detectCores() - 1
   ){
 
-  # make sure suggested pkg dplyr is installed and available
-  if(!requireNamespace("dplyr", quietly = TRUE)) {
-    stop(
-        "Package \"dplyr\" needed for this function to work. Please install it."
-      , call. = FALSE
-      )
-  }
-
   # group each person's obs together
   personH <- hashcol(groupcol, n.cores)
 
@@ -152,6 +144,7 @@ makepath <- function(
     )
   df_groupcol <- data.frame(id = as.character(groupcol))
 
-  # return the path vector
-  dplyr::left_join(df_groupcol, df_path, by = 'id')$path
+  # return the path vector (while preserving original row order)
+  df_path$path[match(df_groupcol$id, df_path$id)]
+
 }

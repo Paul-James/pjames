@@ -16,11 +16,10 @@ Suggests:
     hash
   , parallel
   , utils
+  , magrittr
   , covr
   , testthat
   , rmarkdown
-  , magrittr
-  , dplyr
   , knitr
 Encoding: UTF-8
 License: MIT + file LICENSE

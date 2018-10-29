@@ -8,12 +8,6 @@
 #' @docType package
 #'
 #' @name pjames
-#'
-#' @importFrom magrittr %>%
-#' @importFrom dplyr    left_join
-#' @importFrom parallel detectCores mclapply
-#' @importFrom hash     hash keys values
-#' @importFrom utils    install.packages View
 
 "_PACKAGE"
 

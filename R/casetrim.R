@@ -11,8 +11,19 @@
 #'
 #' @examples
 #' df <- data.frame(
-#'     performingPhysio = c("JILL jones      ", "    jack BLACK", "", " RegiNald ChesterField ")
-#'   , "operating Physio"  = c("Who Dat      ", "chuck FLEMMING      ", NA, "          shankman, razor shankman")
+#'     performingPhysio = c(
+#'       "JILL jones      "
+#'     , "    jack BLACK"
+#'     , ""
+#'     , " RegiNald ChesterField "
+#'     )
+#'   , "operating Physio"  = c(
+#'       "Who Dat      "
+#'     , "chuck FLEMMING      "
+#'     , NA
+#'     , "          shankman
+#'     , razor shankman"
+#'     )
 #'   , consent          = rep(FALSE, times = 4)
 #'   , duration_hrs     = 5:8
 #'   , stringsAsFactors = FALSE

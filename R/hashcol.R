@@ -37,10 +37,10 @@
 
 hashcol <- function(X, n.cores = parallel::detectCores() - 1){
 
-  # make sure suggested pkg dplyr is installed and available
+  # make sure suggested pkg "hash" is installed and available
   if(!requireNamespace("hash", quietly = TRUE)) {
     stop(
-      "Package \"hash\" needed for this function to work. Please install it."
+        "Package \"hash\" needed for this function to work. Please install it."
       , call. = FALSE
     )
   }

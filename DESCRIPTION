@@ -22,7 +22,7 @@ Suggests:
   , rmarkdown
   , knitr
 Encoding: UTF-8
-License: MIT + file LICENSE
+License: file LICENSE
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1

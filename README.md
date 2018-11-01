@@ -3,7 +3,7 @@
 Paul's Personal Package Panacea <img src='man/figures/logo.png' align='right'/>
 ===============================================================================
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://tidyverse.org/lifecycle/#experimental) [![Travis-CI Build Status](https://travis-ci.org/Paul-James/pjames.svg?branch=master)](https://travis-ci.org/Paul-James/pjames) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Paul-James/pjames?branch=master&svg=true)](https://ci.appveyor.com/project/Paul-James/pjames) [![Coverage Status](https://img.shields.io/codecov/c/github/Paul-James/pjames/master.svg)](https://codecov.io/github/Paul-James/pjames?branch=master)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://tidyverse.org/lifecycle/#experimental) [![Travis-CI Build Status](https://img.shields.io/travis/ci/paul-james/pjames.svg?branch=master&logo=travis&longCache=true&style=flat-square)](https://travis-ci.com/Paul-James/pjames) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/Paul-James/pjames/master.svg?logo=appveyor&longCache=true&style=flat-square)](https://ci.appveyor.com/project/Paul-James/pjames) [![Coverage Status](https://img.shields.io/codecov/c/github/Paul-James/pjames/master.svg)](https://codecov.io/github/Paul-James/pjames?branch=master)
 
 Code of Conduct
 ---------------

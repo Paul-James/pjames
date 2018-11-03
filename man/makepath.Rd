@@ -5,8 +5,8 @@
 \title{Create a pathway variable}
 \usage{
 makepath(groupcol, pathcol, sep = "-", subset = FALSE, keepvalues,
-  ordered = TRUE, keepconsec = TRUE, n.cores = parallel::detectCores() -
-  1)
+  ordered = TRUE, keepconsec = TRUE,
+  n.cores = parallel::detectCores() - 1)
 }
 \arguments{
 \item{groupcol}{The column you want to group by. Generally it's a person or employee.}

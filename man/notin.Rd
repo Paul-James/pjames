@@ -2,7 +2,7 @@
 % Please edit documentation in R/notin.R
 \name{\%nin\%}
 \alias{\%nin\%}
-\title{Not in (opposite to \code{\\\%in\\\%})}
+\title{Not in (opposite to \%in\%)}
 \usage{
 x \%nin\% table
 }
@@ -12,7 +12,7 @@ x \%nin\% table
 \item{table}{vector or \code{NULL}: the values to be matched against. Long vectors are not supported.}
 }
 \description{
-An easier and more logical way to express \emph{"elements of object X not in object Y"}; \code{\\\%in\\\%} and \code{\\\%nin\\\%} are wrappers for \code{match}; returns a vector of booleans.
+An easier and more logical way to express \emph{"elements of object X not in object Y"}; \%in\% and \%nin\% are wrappers for \code{match}; returns a vector of booleans.
 }
 \examples{
 1:10 \%nin\% 5:15

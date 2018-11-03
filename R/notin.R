@@ -1,6 +1,6 @@
-#' Not in (opposite to `\%in\%`)
+#' Not in (opposite to \%in\%)
 #'
-#' An easier and more logical way to express _"elements of object X not in object Y"_; `\%in\%` and `\%nin\%` are wrappers for `match`; returns a vector of booleans.
+#' An easier and more logical way to express _"elements of object X not in object Y"_; \%in\% and \%nin\% are wrappers for `match`; returns a vector of booleans.
 #'
 #' @param x vector or `NULL`: the values to be matched. Long Vectors are supported.
 #' @param table vector or `NULL`: the values to be matched against. Long vectors are not supported.

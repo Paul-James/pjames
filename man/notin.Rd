@@ -7,12 +7,12 @@
 x \%nin\% table
 }
 \arguments{
-\item{x}{vector or \code{NULL}: the values to be matched. Long Vectors are suppored.}
+\item{x}{vector or \code{NULL}: the values to be matched. Long Vectors are supported.}
 
 \item{table}{vector or \code{NULL}: the values to be matched against. Long vectors are not supported.}
 }
 \description{
-An easier and more logical way to express "elements of object X not in object Y"; \%in\% and \%nin\% are wrappers for match; returns a vector of booleans.
+An easier and more logical way to express \emph{"elements of object X not in object Y"}; \%in\% and \%nin\% are wrappers for \code{match}; returns a vector of booleans.
 }
 \examples{
 1:10 \%nin\% 5:15

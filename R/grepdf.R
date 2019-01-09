@@ -46,18 +46,12 @@ grepdf <- function(
   ## make sure everything is a character vector and also a dataframe
   df <- as.data.frame(sapply(df_input, as.character))
 
-  if(missing(ignore.case)) ignore.case = TRUE
-  if(missing(invert))      invert      = FALSE
-  if(missing(fixed))       fixed       = FALSE
-
   ## grep every column to capture the rows of the matches
   df <- lapply(df, function(X){
     suppressWarnings(grep(
-        pattern     = pattern
-      , x           = X
-      , ignore.case = ignore.case
-      , invert      = invert
-      , fixed       = fixed
+        pattern = pattern
+      , x       = X
+      , ...
     ))
   })
 

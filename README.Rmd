@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 
 # Paul's Personal Package Panacea <img src='man/figures/logo.png' align='right'/>
 
+
+[![license](https://img.shields.io/github/license/Paul-James/pjames.svg?logo=license&logoColor=fff&longCache=true&style=flat-square)](https://github.com/Paul-James/pjames/blob/master/LICENSE)
 [![release](https://img.shields.io/github/release/Paul-James/pjames.svg?logo=github&logoColor=fff&longCache=true&style=flat-square)](https://github.com/Paul-James/pjames/releases)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg?logo=r&logoColor=fff&longCache=true&style=flat-square)](https://tidyverse.org/lifecycle/#experimental)
 [![Travis-CI Build Status](https://img.shields.io/travis/Paul-James/pjames/master.svg?logo=travis&logoColor=fff&longCache=true&style=flat-square)](https://travis-ci.org/Paul-James/pjames)
@@ -25,7 +27,7 @@ knitr::opts_chunk$set(
 
 ## Code of Conduct
 
-Please note that this project is released with a `Contributor Code of Conduct`. By participating in this project you agree to abide by its terms.
+Please note this project is released with a `Contributor Code of Conduct`. By participating in this project you agree to abide by its terms.
 
 ## How to install the package
 

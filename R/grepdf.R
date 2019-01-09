@@ -1,17 +1,17 @@
-#' Grep a data frame: many synergy, much useful, wow
+#' Grep a dataframe: many synergy, much useful, wow
 #'
-#' Grep a data frame and return info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
+#' Grep a dataframe and return a dataframe info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
 #' Not optimized and is currently slow on big datasets or many matches. Further work needs to be done to make this faster/efficient.
-#' One of the use case would be to find and replace a pattern wherever it is in the data.
+#' One of the use cases would be to find and replace a pattern wherever it is in the data.
 #' Another use case not yet built in is to identify data missingness.
 #'
-#' @param df_input data frame to search
-#' @param pattern the literal or regex pattern  to search on (default is regex)
-#' @param unique return only unique records or all matches?
-#' @param save_df_name include the input data frame name in the returned results?
-#' @param save_col_name include the matched value column name in the returned results?
-#' @param save_pattern include the pattern searched for in the returned results?
-#' @param ... additional arguments for grep function
+#' @param df_input      `data.frame`; `required`; dataframe to search
+#' @param pattern       `scalar`; `required`; the regex or literal pattern to search on _(uses `regex` pattern unless `fixed = TRUE` is passed as a function parameter, see `examples`)_
+#' @param unique        `logical`; default is `TRUE`; return only unique records or all matches?
+#' @param save_df_name  `logical`; default is `FALSE`; include the input dataframe name in the returned results?
+#' @param save_col_name `logical`; default is `FALSE`; include the matched value column name in the returned results?
+#' @param save_pattern  `logical`; default is `FALSE`; include the pattern searched for in the returned results?
+#' @param ...           additional arguments passed to `\link[base]{grep}`
 #'
 #' @seealso `\link[base]{grep}`
 #' @keywords grep tibble data.frame regex
@@ -19,8 +19,15 @@
 #' @examples
 #' grepdf(
 #'     df_input = iris
-#'   , pattern  = '3.1|5.9'
+#'   , pattern  = '3[.]1|5[.]9'
 #'   , unique   = FALSE
+#' )
+#'
+#' grepdf(
+#'     df_input = esoph
+#'   , pattern  = '0-9g/day'
+#'   , unique   = FALSE
+#'   , fixed    = TRUE
 #' )
 #'
 #' @rdname grepdf
@@ -36,12 +43,12 @@ grepdf <- function(
   , ...
   ){
 
-  ## make sure everything is a character vector and also a data frame
+  ## make sure everything is a character vector and also a dataframe
   df <- as.data.frame(sapply(df_input, as.character))
 
-  if(!exists('ignore.case')) ignore.case = TRUE
-  if(!exists('invert')) invert = FALSE
-  if(!exists('fixed')) fixed = FALSE
+  if(missing(ignore.case)) ignore.case = TRUE
+  if(missing(invert))      invert      = FALSE
+  if(missing(fixed))       fixed       = FALSE
 
   ## grep every column to capture the rows of the matches
   df <- lapply(df, function(X){
@@ -57,7 +64,7 @@ grepdf <- function(
   ## instantiate an empty list to fill with a loop
   df_output <- list()
 
-  ## for every column that has matches create a data frame that identifies it
+  ## for every column that has matches create a dataframe that identifies it
   for(i in 1:length(df)){
 
     if(length(df[[i]]) > 0){
@@ -85,7 +92,7 @@ grepdf <- function(
     )))
   }
 
-  ## include the original data frame input name in the output?
+  ## include the original dataframe input name in the output?
   if(save_df_name){
     df_output$df_name <- deparse(substitute(df_input))
   }

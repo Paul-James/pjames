@@ -2,37 +2,44 @@
 % Please edit documentation in R/grepdf.R
 \name{grepdf}
 \alias{grepdf}
-\title{Grep a data frame: many synergy, much useful, wow}
+\title{Grep a dataframe: many synergy, much useful, wow}
 \usage{
 grepdf(df_input, pattern, unique = TRUE, save_df_name = FALSE,
   save_col_name = FALSE, save_pattern = FALSE, ...)
 }
 \arguments{
-\item{df_input}{data frame to search}
+\item{df_input}{\code{data.frame}; \code{required}; dataframe to search}
 
-\item{pattern}{the literal or regex pattern  to search on (default is regex)}
+\item{pattern}{\code{scalar}; \code{required}; the regex or literal pattern to search on \emph{(uses \code{regex} pattern unless \code{fixed = TRUE} is passed as a function parameter, see \code{examples})}}
 
-\item{unique}{return only unique records or all matches?}
+\item{unique}{\code{logical}; default is \code{TRUE}; return only unique records or all matches?}
 
-\item{save_df_name}{include the input data frame name in the returned results?}
+\item{save_df_name}{\code{logical}; default is \code{FALSE}; include the input dataframe name in the returned results?}
 
-\item{save_col_name}{include the matched value column name in the returned results?}
+\item{save_col_name}{\code{logical}; default is \code{FALSE}; include the matched value column name in the returned results?}
 
-\item{save_pattern}{include the pattern searched for in the returned results?}
+\item{save_pattern}{\code{logical}; default is \code{FALSE}; include the pattern searched for in the returned results?}
 
-\item{...}{additional arguments for grep function}
+\item{...}{additional arguments passed to \code{\link[base]{grep}}}
 }
 \description{
-Grep a data frame and return info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
+Grep a dataframe and return a dataframe info about the match: where it is, what it is, accessor fields, and other various metadata about the match in question.
 Not optimized and is currently slow on big datasets or many matches. Further work needs to be done to make this faster/efficient.
-One of the use case would be to find and replace a pattern wherever it is in the data.
+One of the use cases would be to find and replace a pattern wherever it is in the data.
 Another use case not yet built in is to identify data missingness.
 }
 \examples{
 grepdf(
     df_input = iris
-  , pattern  = '3.1|5.9'
+  , pattern  = '3[.]1|5[.]9'
   , unique   = FALSE
+)
+
+grepdf(
+    df_input = esoph
+  , pattern  = '0-9g/day'
+  , unique   = FALSE
+  , fixed    = TRUE
 )
 
 }

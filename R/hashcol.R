@@ -38,7 +38,7 @@
 hashcol <- function(X, n.cores = parallel::detectCores() - 1){
 
   # make sure suggested pkgs are installed and available
-  pjames:::pkg_check(c('hash', 'future.apply'))
+  pkg_check(c('hash', 'future', 'future.apply'))
 
   # make sure to terminate dead processes
   on.exit({
@@ -52,7 +52,7 @@ hashcol <- function(X, n.cores = parallel::detectCores() - 1){
 
   if(n.cores > 1){
 
-    plan(strategy = multiprocess, workers = n.cores)
+    future::plan(strategy = future::multiprocess, workers = n.cores)
     vals <- future.apply::future_lapply(keys, function(Y) which(X == Y))
 
   } else {

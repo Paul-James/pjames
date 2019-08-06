@@ -7,7 +7,7 @@ sudo: false
 cache: packages
 
 # TODO: set to false while testing
-# warnings_are_errors: false
+warnings_are_errors: false
 
 after_success:
   - Rscript -e 'covr::codecov()'

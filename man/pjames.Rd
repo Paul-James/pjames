@@ -4,7 +4,6 @@
 \name{pjames}
 \alias{pjames}
 \alias{pjames-package}
-\alias{pjames-package}
 \title{\code{pjames} package}
 \description{
 Paul's Personal Pacakge Panacea

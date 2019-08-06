@@ -15,6 +15,7 @@ Depends: R (>= 3.1.2)
 Suggests:
     hash
   , parallel
+  , future.apply
   , utils
   , magrittr
   , covr
@@ -25,5 +26,5 @@ Encoding: UTF-8
 License: file LICENSE
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr

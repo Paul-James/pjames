@@ -37,34 +37,34 @@
 
 hashcol <- function(X, n.cores = parallel::detectCores() - 1){
 
-  # make sure suggested pkg "hash" is installed and available
-  if(!requireNamespace("hash", quietly = TRUE)) {
-    stop(
-        "Package \"hash\" needed for this function to work. Please install it."
-      , call. = FALSE
-    )
-  }
+  # make sure suggested pkgs are installed and available
+  pjames:::pkg_check(c('hash', 'future.apply'))
 
-  ##
+  # make sure to terminate dead processes
+  on.exit({
+
+    if(n.cores > 1) future:::ClusterRegistry('stop')
+
+  })
+
+  #
   keys <- unique(X)
 
-  ##
-  if(tolower(Sys.info()['sysname']) == 'windows'){
-    vals <- lapply(
-        X   = keys
-      , FUN = function(Y) which(X == Y)
-    )
+  if(n.cores > 1){
+
+    plan(strategy = multiprocess, workers = n.cores)
+    vals <- future.apply::future_lapply(keys, function(Y) which(X == Y))
+
   } else {
-    vals <- parallel::mclapply(
-        X        = keys
-      , FUN      = function(Y) which(X == Y)
-      , mc.cores = n.cores
-    )
+
+    vals <- lapply(keys, function(Y) which(X == Y))
+
   }
 
-  ##
+  #
   names(vals) <- keys
 
-  ##
+  #
   hash::hash(vals)
+
 }

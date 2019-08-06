@@ -19,7 +19,7 @@ platform: x64
 
 environment:
   global:
-    WARNINGS_ARE_ERRORS: 1
+    WARNINGS_ARE_ERRORS:
 
   matrix:
   - R_VERSION: devel
